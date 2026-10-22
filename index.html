@@ -16,54 +16,6 @@
 </head>
 <body>
 
-  <!-- Cinematic Moving River / Sky Fixed Background -->
-  <div class="cinema-sky-bg" id="cinema-sky-bg" aria-hidden="true">
-    
-    <!-- Day Sky Layer: Moving River / Sky Video Background -->
-    <div class="sky-layer day-sky-layer" id="day-sky-layer">
-      <video class="cinema-sky-video" id="cinema-sky-video" autoplay loop muted playsinline poster="assets/evra-clouds.jpg">
-        <source src="assets/evra-clouds.mp4" type="video/mp4">
-      </video>
-      <div class="cinema-sun-glow"></div>
-      <div class="cinema-orb cinema-orb-1"></div>
-      <div class="cinema-orb cinema-orb-2"></div>
-    </div>
-
-    <!-- Night Sky Layer (Deep Midnight Starfield, Moving Parallax Stars & Meteors) -->
-    <div class="sky-layer night-sky-layer" id="night-sky-layer">
-      <div class="starfield-layer starfield-drift-slow"></div>
-      <div class="starfield-layer starfield-drift-fast"></div>
-      <div class="starfield-twinkle"></div>
-      
-      <!-- Shooting Stars / Meteor Streaks across night sky -->
-      <div class="shooting-star-container">
-        <div class="shooting-star shooting-star-1"></div>
-        <div class="shooting-star shooting-star-2"></div>
-        <div class="shooting-star shooting-star-3"></div>
-      </div>
-
-      <div class="night-nebula night-nebula-1"></div>
-      <div class="night-nebula night-nebula-2"></div>
-    </div>
-
-    <!-- Celestial Sun (Animates from bottom-left up into sky during Light Mode) -->
-    <div class="celestial-body celestial-sun" id="celestial-sun">
-      <div class="sun-corona"></div>
-      <div class="sun-core"></div>
-    </div>
-
-    <!-- Celestial Moon (Rises gracefully into night sky during Midnight Mode) -->
-    <div class="celestial-body celestial-moon" id="celestial-moon">
-      <div class="moon-aura"></div>
-      <div class="moon-body">
-        <div class="moon-crater crater-1"></div>
-        <div class="moon-crater crater-2"></div>
-        <div class="moon-crater crater-3"></div>
-      </div>
-    </div>
-
-  </div>
-
   <!-- Floating Sticky Pill Navbar -->
   <header class="site-header" id="site-header">
     <div class="nav-container">
@@ -159,25 +111,48 @@
     </div>
   </header>
 
-  <main>
+  <main class="colorinvoice-main-layout">
 
-    <!-- Top Headline Section Over Movie Clouds Background (Page 1) -->
-    <section class="sky-hero-intro">
-      <h1 class="main-headline">
+    <!-- ColorInvoice Blog Article Header -->
+    <div class="colorinvoice-article-wrapper">
+      
+      <div class="article-breadcrumb-row" style="text-align: center;">
+        <a href="#blog" class="back-link">
+          <span class="arrow-back">←</span>
+          <span>Back to Blog</span>
+        </a>
+      </div>
+
+      <div class="article-meta-row" style="justify-content: center;">
+        <span class="category-pill-green">BEST PRACTICES</span>
+        <span class="article-date-meta">October 22, 2026 · 6 min read</span>
+      </div>
+
+      <h1 class="colorinvoice-article-title" style="text-align: center;">
         Can We Sell You Our Web Design Service<br>
         With An Ugly Looking Website Like This?
       </h1>
-    </section>
 
-    <!-- Centered Physical Sales "Letter" Sheet Container -->
-    <div class="sales-letter-wrapper">
-      <article class="sales-letter-sheet">
-        <div class="letter-flow">
+      <!-- Author Byline -->
+      <div class="author-byline-card" style="justify-content: center;">
+        <div class="author-avatar-badge">
+          <img src="assets/logo.jpg" alt="247Kraft Author" class="author-avatar-img">
+        </div>
+        <div class="author-info-block" style="text-align: left;">
+          <span class="author-name">247Kraft</span>
+          <span class="author-role">Digital & Web Studio</span>
+        </div>
+      </div>
 
-          <!-- PAGE 1 HERO MEME (SITS TASTEFULLY INSIDE CONTAINER) -->
-          <div class="meme-container hero-meme-wrap">
-            <img src="assets/meme-two-buttons.jpg?v=2" alt="A sexy-looking website vs A website that serves your business" class="sales-meme-img">
-          </div>
+      <!-- ColorInvoice Hero Illustration / Feature Banner Card housing Meme -->
+      <div class="hero-feature-banner">
+        <div class="hero-feature-inner">
+          <img src="assets/meme-two-buttons.jpg?v=4" alt="A sexy-looking website vs A website that serves your business" class="colorinvoice-feature-img">
+        </div>
+      </div>
+
+      <!-- Editorial Body Container with Exact Original Copy, Sizes, Spacing, and Paragraphs -->
+      <article class="article-body-flow">
 
           <!-- PAGE 2 OF PDF -->
           <p style="font-size: 1.25rem; font-weight: 700;">
