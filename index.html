@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>247Kraft — Can We Sell You Our Web Design Service With An Ugly Looking Website Like This?</title>
+  <meta name="description" content="At 247Kraft, we turn ideas into working digital products and build bespoke websites tailored around your actual business goals.">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+  <!-- Typography: Figtree (from ColorInvoice.com - cool, calm modern sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+
+  <!-- Cinematic Moving River / Sky Fixed Background -->
+  <div class="cinema-sky-bg" id="cinema-sky-bg" aria-hidden="true">
+    
+    <!-- Day Sky Layer: Moving River / Sky Video Background -->
+    <div class="sky-layer day-sky-layer" id="day-sky-layer">
+      <video class="cinema-sky-video" id="cinema-sky-video" autoplay loop muted playsinline poster="assets/evra-clouds.jpg">
+        <source src="assets/evra-clouds.mp4" type="video/mp4">
+      </video>
+      <div class="cinema-sun-glow"></div>
+      <div class="cinema-orb cinema-orb-1"></div>
+      <div class="cinema-orb cinema-orb-2"></div>
+    </div>
+
+    <!-- Night Sky Layer (Deep Midnight Starfield, Moving Parallax Stars & Meteors) -->
+    <div class="sky-layer night-sky-layer" id="night-sky-layer">
+      <div class="starfield-layer starfield-drift-slow"></div>
+      <div class="starfield-layer starfield-drift-fast"></div>
+      <div class="starfield-twinkle"></div>
+      
+      <!-- Shooting Stars / Meteor Streaks across night sky -->
+      <div class="shooting-star-container">
+        <div class="shooting-star shooting-star-1"></div>
+        <div class="shooting-star shooting-star-2"></div>
+        <div class="shooting-star shooting-star-3"></div>
+      </div>
+
+      <div class="night-nebula night-nebula-1"></div>
+      <div class="night-nebula night-nebula-2"></div>
+    </div>
+
+    <!-- Celestial Sun (Animates from bottom-left up into sky during Light Mode) -->
+    <div class="celestial-body celestial-sun" id="celestial-sun">
+      <div class="sun-corona"></div>
+      <div class="sun-core"></div>
+    </div>
+
+    <!-- Celestial Moon (Rises gracefully into night sky during Midnight Mode) -->
+    <div class="celestial-body celestial-moon" id="celestial-moon">
+      <div class="moon-aura"></div>
+      <div class="moon-body">
+        <div class="moon-crater crater-1"></div>
+        <div class="moon-crater crater-2"></div>
+        <div class="moon-crater crater-3"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating Sticky Pill Navbar -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand-identity" aria-label="247Kraft Home">
+        <div class="brand-logo-badge">
+          <img src="assets/logo.jpg" alt="247Kraft Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-label">
+          <span class="brand-name">247Kraft</span>
+          <span class="brand-subtext">Digital & Web Studio</span>
+        </div>
+      </a>
+
+      <!-- Center Navigation Links -->
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#learn" class="nav-link dropdown-toggle" id="learn-menu-btn" aria-haspopup="true" aria-expanded="false">
+              <span>Learn From Me</span>
+              <span class="nav-caret">▾</span>
+            </a>
+            <div class="nav-dropdown-card" role="menu">
+              <a href="#learn" class="dropdown-item-link" role="menuitem">
+                <span class="dropdown-item-badge">💡</span>
+                <span class="dropdown-item-info">
+                  <strong class="dropdown-title">Web Design Masterclass</strong>
+                  <small class="dropdown-desc">High-converting layouts & visual tactics</small>
+                </span>
+              </a>
+              <a href="#mentorship" class="dropdown-item-link" role="menuitem">
+                <span class="dropdown-item-badge">🚀</span>
+                <span class="dropdown-item-info">
+                  <strong class="dropdown-title">1-on-1 Mentorship</strong>
+                  <small class="dropdown-desc">Direct feedback, design & code reviews</small>
+                </span>
+              </a>
+              <a href="#guides" class="dropdown-item-link" role="menuitem">
+                <span class="dropdown-item-badge">📚</span>
+                <span class="dropdown-item-info">
+                  <strong class="dropdown-title">Free Design Resources</strong>
+                  <small class="dropdown-desc">Practical UI checklists for founders</small>
+                </span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link">Blog</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="availability-chip">
+          <span class="live-dot"></span>
+          <span>Available for New Projects</span>
+        </div>
+        <button class="nav-cta-btn open-modal-btn" data-source="Header Nav">
+          <span>Start A Project</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer (Hidden by default) -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <div class="mobile-nav-inner">
+        <a href="#about" class="mobile-nav-item">
+          <span>About Me</span>
+          <span class="m-arrow">→</span>
+        </a>
+        <a href="#learn" class="mobile-nav-item">
+          <span>Learn From Me</span>
+          <span class="m-arrow">→</span>
+        </a>
+        <a href="#blog" class="mobile-nav-item">
+          <span>Blog</span>
+          <span class="m-arrow">→</span>
+        </a>
+        <div class="mobile-nav-divider"></div>
+        <button class="nav-cta-btn open-modal-btn mobile-cta-btn" data-source="Mobile Menu">
+          <span>Start A Project</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Top Headline Section Over Movie Clouds Background (Page 1) -->
+    <section class="sky-hero-intro">
+      <h1 class="main-headline">
+        Can We Sell You Our Web Design Service<br>
+        With An Ugly Looking Website Like This?
+      </h1>
+    </section>
+
+    <!-- Centered Physical Sales "Letter" Sheet Container -->
+    <div class="sales-letter-wrapper">
+      <article class="sales-letter-sheet">
+        <div class="letter-flow">
+
+          <!-- PAGE 1 HERO MEME (SITS TASTEFULLY INSIDE CONTAINER) -->
+          <div class="meme-container hero-meme-wrap">
+            <img src="assets/meme-two-buttons.jpg" alt="A sexy-looking website vs A website that serves your business" class="sales-meme-img">
+          </div>
+
+          <!-- PAGE 2 OF PDF -->
+          <p style="font-size: 1.25rem; font-weight: 700;">
+            Dear Internet Stranger,
+          </p>
+
+          <p>
+            You're probably wondering why a company that wants to design ‘beautiful’ websites for other businesses is trying to sell you its services with a website that looks like this.
+          </p>
+
+          <p>
+            Naturally, you'd expect us to show off a stunning website of our own.
+          </p>
+
+          <p>
+            Something with beautiful animations, fancy effects, and enough visual magic to make you say:
+          </p>
+
+          <p style="text-align: center; font-weight: 700; font-size: 1.15rem; margin: 24px 0;">
+            "Yep. These guys know what they're doing."
+          </p>
+
+          <p>
+            But instead, you're looking at this ugly looking website and you're probably wondering whether we've lost our minds.
+          </p>
+
+          <p>
+            Fair enough. Lol.
+          </p>
+
+          <p>
+            If I were looking for a web designer myself, I'd probably raise an eyebrow, too.
+          </p>
+
+          <p>
+            But here’s the thing…
+          </p>
+
+          <p>
+            We're not asking you to hire us based on this page alone.
+          </p>
+
+          <p>
+            We'll show you actual websites we've built so you can judge the quality of our work for yourself.
+          </p>
+
+          <p>
+            And yes, those websites look considerably better than this one. 😂
+          </p>
+
+          <p>
+            But before you run off to find someone with a prettier website and risk spending your money on a website that looks seksy but does little for your business…
+          </p>
+
+          <p>
+            Can we talk for a minute?
+          </p>
+
+          <p style="font-weight: 700;">
+            3mins, that’s all.
+          </p>
+
+          <!-- TESTIMONIAL SET 1 (ONLY FIRST TESTIMONIAL AT TOP OF PAGE) -->
+          <div class="testimonial-set testimonial-spotlight">
+            <div class="testimonial-card">
+              <img src="assets/testimonials/first-testimonial.jpg" alt="Client testimonial praising landing page results" class="testimonial-card-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 2) -->
+          <h2 class="section-headline">
+            First, a question….
+          </h2>
+
+          <p class="text-red">
+            <strong>When you pay someone to build you a professional looking website for your business, what exactly are you paying for?</strong>
+          </p>
+
+          <p>
+            Are you paying for just a beautiful design?
+          </p>
+
+          <!-- PAGE 3 OF PDF -->
+          <p>
+            A collection of pages with your logo and pictures on them?
+          </p>
+
+          <p>
+            Something impressive enough to show your friends?
+          </p>
+
+          <p>
+            Maybe you are paying for something that actually serves a purpose in your business?
+          </p>
+
+          <p>
+            Or Let me guess…
+          </p>
+
+          <p style="font-weight: 700;">
+            You want a website that not only looks professional but also adds real value to your business
+          </p>
+
+          <p>
+            <strong>Whether that value means increasing your visibility, attracting more customers, generating sales or even elevating your brand’s prestige.</strong>
+          </p>
+
+          <p>
+            But ofcourse, your website should look good!
+          </p>
+
+          <p>
+            Nobody wants to send potential customers to a website that looks like it was built by 7 year olds as a summer school project.
+          </p>
+
+          <p>
+            <em>Sheeesh. I get that…</em>
+          </p>
+
+          <p>
+            Infact, a professional-looking website can make a great first impression, help people take your business seriously and give potential customers more confidence in what you're offering.
+          </p>
+
+          <p>
+            But here's the thing…
+          </p>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 3) -->
+          <h2 class="section-headline">
+            A website that looks good and is actually useful to your business aren't the same thing.
+          </h2>
+
+          <p class="text-red">
+            <strong>This is where a lot of business owners are being misled.</strong>
+          </p>
+
+          <p>
+            Most web designers advertise building a sesky looking website that looks professional for your business.
+          </p>
+
+          <p>
+            But guess what?
+          </p>
+
+          <p>
+            There’s a graveyard full of dead websites that once upon a time, they looked professional but were never renewed after the first year because…
+          </p>
+
+          <!-- PAGE 4 IMAGE: GRAVEYARD OF DEAD WEBSITES (NO CORNERS, NO SHADOWS) -->
+          <div class="meme-container">
+            <img src="assets/image-graveyard.jpg" alt="A graveyard full of dead websites that looked professional but were never renewed after the first year" class="sales-meme-img">
+          </div>
+
+          <!-- SUBHEAD (PAGE 4 IN PDF: 17.3pt BOLD) -->
+          <h3 class="sub-headline">
+            A beautiful, professional looking website can still become a bloooody expense.
+          </h3>
+
+          <p>
+            And here's where I believe some web designers miss the point.
+          </p>
+
+          <p>
+            They know how to make a website look good. I mean, beyond the colours, animations, beautiful layouts, and fancy effects…
+          </p>
+
+          <p>
+            They don't always stop to ask what the business actually needs that website to do.
+          </p>
+
+          <p>Things like…</p>
+
+          <p>What are you trying to achieve with the website?</p>
+
+          <p>Who are you trying to reach?</p>
+
+          <p>
+            And how should the website help potential customers understand what you offer and decide whether they want to do business with you?
+          </p>
+
+          <p>These questions matter, too.</p>
+
+          <p class="text-red">
+            <strong>But the problem is that some web designers have the technical skills to build you a website but lack the business sense to ask these questions before they start building.</strong>
+          </p>
+
+          <p>
+            They'll happily discuss your preferred colours, the kind of layout you want, the animations you'd like to see, and how beautiful you want the finished website to look.
+          </p>
+
+          <!-- PAGE 5 OF PDF -->
+          <p>
+            And there's nothing wrong with that.
+          </p>
+
+          <p>
+            But guess what?
+          </p>
+
+          <p>
+            Knowing how to design a beautiful website and understanding what makes a website useful to a business are two different things.
+          </p>
+
+          <!-- PAGE 5 ANIMATED GIF: ROLL SAFE "EXACTLY" (NO CORNERS, NO SHADOWS) -->
+          <div class="meme-container">
+            <img src="assets/roll-safe-animated-exactly.gif" alt="Roll Safe tapping his temple - EXACTLY animated gif" class="sales-meme-img" style="max-width: 440px;">
+          </div>
+
+          <!-- PAGE 5: EXACT FORMATTING SHOWN IN USER SCREENSHOT -->
+          <p>
+            <strong>Now, does this mean that simply asking the right questions will magically make your website bring in more customers?</strong>
+          </p>
+
+          <p>
+            Of course not!
+          </p>
+
+          <p>
+            Obviously, a website isn't a magic wand from Harry Porter.
+          </p>
+
+          <p>
+            Simply paying us to build you one doesn't automatically <strong>increase your visibility, attract more customers, generate sales or even elevate your brand’s prestige.</strong>
+          </p>
+
+          <p>
+            <u>Infact</u>, if anyone promises you guaranteed sales just because you have a website, it’s a big friggin red flag.
+          </p>
+
+          <p>
+            There. I said it.
+          </p>
+
+          <!-- PAGE 6 OF PDF -->
+          <p>
+            Listen, the point isn't that a website will magically grow your business.
+          </p>
+
+          <p>
+            <strong>It's that if you're going to invest in one, you should have a clear idea of what you want it to help you achieve.</strong>
+          </p>
+
+          <p>
+            Because the goal isn't to own a website.
+          </p>
+
+          <p>
+            The goal is to have something useful for your business.
+          </p>
+
+          <p>
+            Something that presents your business professionally while making it easier for potential customers to understand what you offer and take the next step.
+          </p>
+
+          <p>
+            <strong>And that's the kind of website we've been building for clients all over the planet</strong>
+          </p>
+
+          <!-- TESTIMONIAL STANDALONE SCREENSHOT 2 (AS REQUESTED) -->
+          <div class="testimonial-set testimonial-spotlight">
+            <div class="testimonial-card">
+              <img src="assets/testimonials/testimonial-3605.jpg" alt="Client payment confirmation and praise" class="testimonial-card-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 6) -->
+          <h2 class="section-headline">
+            "But Do I Really Need a Website?"
+          </h2>
+
+          <p>
+            Honestly? Not necessarily.
+          </p>
+
+          <p>
+            Not every business needs a website immediately.
+          </p>
+
+          <p>
+            I mean, If your current setup is working perfectly for your business, you might not need to change anything today.
+          </p>
+
+          <p class="text-red">
+            <strong>We're not here to convince every business owner on the internet to pay for a website they don't need…</strong>
+          </p>
+
+          <p>
+            Especially when it’s something you might not have considered necessary until now.
+          </p>
+
+          <p>
+            But consider a few things right now my dear business owner…
+          </p>
+
+          <p>
+            You’re currently trying hard to build your business.
+          </p>
+
+          <p>
+            You've poured your energy, time, sweat (and maybe all your life) into it.
+          </p>
+
+          <p>Money, too.</p>
+
+          <p>
+            You've got products to sell, services to offer, customers to serve, and a reputation you're working hard to build.
+          </p>
+
+          <p>
+            Maybe you use Instagram to showcase your work.
+          </p>
+
+          <!-- PAGE 7 OF PDF -->
+          <p>
+            Facebook to reach potential customers.
+          </p>
+
+          <p>
+            WhatsApp to answer questions, send prices, and even close deals.
+          </p>
+
+          <p>
+            But here’s the thing…
+          </p>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 7) -->
+          <h2 class="section-headline">
+            “A Website Can Become Another Revenue Source ‘If’ Done Properly.”
+          </h2>
+
+          <p>Think about it…</p>
+
+          <p>
+            Your social media profiles can help people discover your business or even do business with you.
+          </p>
+
+          <p>
+            Your website can take things a step further.
+          </p>
+
+          <p>
+            It gives potential customers a place to learn more about your business, understand what you're offering, and figure out how to take the next step.
+          </p>
+
+          <p>And the beautiful thing is, these channels don't have to compete with each other. They can work together.</p>
+
+          <p>For example…</p>
+
+          <p>
+            Someone discovers your business on Instagram, visits your website to learn more about your products, and then contacts you on WhatsApp to place an order.
+          </p>
+
+          <p>
+            Or someone sees your Facebook ad, lands on a page explaining your offer, and requests a quote.
+          </p>
+
+          <p>See how that works?</p>
+
+          <p>
+            Your website becomes another part of the process of turning people who discover your business into paying customers.
+          </p>
+
+          <p>But there's something else worth considering…</p>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 8) -->
+          <h2 class="section-headline">
+            How much of your business's online presence depends on platforms you don't control?
+          </h2>
+
+          <div class="meme-container">
+            <img src="assets/meme-zuckerberg-banned.jpg" alt="Mark Zuckerberg meme - You Guys Look Familiar. Have I Banned You Before?" class="sales-meme-img" style="max-width: 440px;">
+          </div>
+
+          <p>Think about it.</p>
+
+          <p>
+            Instagram could suspend your account tomorrow.
+          </p>
+
+          <p>
+            Facebook could restrict your page.
+          </p>
+
+          <p>
+            WhatsApp could ban your number, leaving you scrambling to figure out what happened.
+          </p>
+
+          <!-- PAGE 8 OF PDF -->
+          <p>
+            And just like that, you could lose access to the audience you've spent years building, conversations with potential customers, and opportunities to make sales.
+          </p>
+
+          <p>Oh dear God.</p>
+
+          <p>
+            Imagine spending years building your Instagram page to 200,000 followers, only to wake up one morning and discover you've been banned.
+          </p>
+
+          <p>
+            All that time, effort, and money you've invested in building that audience…
+          </p>
+
+          <p>
+            And suddenly, you can't even access it.
+          </p>
+
+          <p>
+            That's enough to give a business owner sleepless nights.
+          </p>
+
+
+
+          <!-- CENTERED BIG HEADLINE (PAGE 8) -->
+          <h2 class="section-headline">
+            But here's where having your own website can make a difference in your business…
+          </h2>
+
+          <p>
+            Your website gives your business another place to establish its online presence, one where you're not entirely dependent on a social media platform deciding whether you can reach your audience.
+          </p>
+
+          <p>
+            You have considerably more control over how your business is presented, how your information is organized, and how visitors interact with what you offer.
+          </p>
+
+          <p class="text-red">
+            <strong>And while your website still requires maintenance, hosting, and marketing, iit gives you an additional asset you control rather than relying entirely on platforms you don't.</strong>
+          </p>
+
+          <!-- PAGE 9 OF PDF -->
+          <p>
+            Of course, I'm not saying you should abandon Instagram, Facebook, or WhatsApp.
+          </p>
+
+          <p>
+            Far from it.
+          </p>
+
+          <p>
+            Keep using the channels that help you attract customers and make sales.
+          </p>
+
+          <p>
+            <strong>Just don't overlook the value of having a website working alongside them.</strong>
+          </p>
+
+          <p>
+            Because the goal isn't to have a website simply for the sake of having one.
+          </p>
+
+          <p>
+            It's to give your business another useful asset that can help you attract customers, communicate your value, and make it easier for people to do business with you.
+          </p>
+
+          <p>
+            So no, we're not saying every business needs a website immediately.
+          </p>
+
+          <p>
+            We're simply asking you to consider whether one could make your business easier to run, create more opportunities, and give you greater control over your online presence.
+          </p>
+
+          <p>
+            And if the answer is yes, perhaps it's worth exploring what the right website could do for your business.
+          </p>
+
+          <div class="cta-action-center">
+            <button class="sales-button open-modal-btn" data-source="Asset Section CTA">
+              <span>[LET'S DISCUSS YOUR PROJECT]</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <!-- TESTIMONIAL SET 2 (SET OF 2 CLIENT SCREENSHOTS) -->
+          <div class="testimonial-set">
+            <div class="testimonial-grid">
+              <div class="testimonial-card">
+                <img src="assets/testimonials/testimonial-3606.jpg" alt="Client testimonial on website project" class="testimonial-card-img" loading="lazy">
+              </div>
+              <div class="testimonial-card">
+                <img src="assets/testimonials/testimonial-3607.jpg" alt="Client praise for website delivery" class="testimonial-card-img" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 9) -->
+          <h2 class="section-headline">
+            “Okay I’m Sold! But Can You Actually Build a Good-Looking Website For My Business?”
+          </h2>
+
+          <p>Ah. There it is.</p>
+
+          <p>The question we've been expecting.</p>
+
+          <p>
+            After all that preaching about websites, you'd probably like to see whether we can build one ourselves.
+          </p>
+
+          <p>Fair enough...</p>
+
+          <p>
+            I mean, we could spend all day telling you how good we are at building websites, we’re not going to ask you to take our word for it.
+          </p>
+
+          <p>But we'd rather show you.</p>
+
+          <!-- PAGE 10 OF PDF: SHOWCASE -->
+          <p>
+            At 247Kraft, we use modern development tools and AI to turn ideas into working digital products.
+          </p>
+
+          <h3 class="showcase-headline">
+            See What We've Built Over The Years.
+          </h3>
+
+          <!-- INTERACTIVE 3D FRAMER-MOTION SHOWCASE CAROUSEL (EVRA AI INSPIRED) -->
+          <div class="showcase-carousel-wrapper" id="showcase-carousel-wrapper" tabindex="0" role="region" aria-label="Projects Showcase Carousel">
+            
+            <button class="carousel-nav-btn prev-btn" id="carousel-prev-btn" aria-label="Previous project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="showcase-carousel-stage" id="showcase-stage">
+              <div class="showcase-track" id="showcase-track">
+                
+                <!-- CYCLE 1 -->
+                <!-- Slide 0: Conspodium -->
+                <article class="showcase-card continuous-slide" data-index="0" data-project="0">
+                  <div class="showcase-media">
+                    <img src="assets/project-conspodium.png?v=3" alt="Conspodium Global Media & Community Publication Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">Conspodium</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A modern publishing and civic forum platform empowering scholars, activists, and leaders across the global diaspora.
+                    </p>
+                    <a href="https://conspodium.com" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit Conspodium website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Slide 1: VSO Table Tennis -->
+                <article class="showcase-card continuous-slide" data-index="1" data-project="1">
+                  <div class="showcase-media">
+                    <img src="assets/project-vsotabletennis.png?v=3" alt="VSO Table Tennis Youth Sports Development Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">VSO Table Tennis</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A grassroots sports development platform providing equipment, coaching, and championship training across schools in Lagos.
+                    </p>
+                    <a href="https://vsotabletennis.com" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit VSO Table Tennis website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Slide 2: Qvest -->
+                <article class="showcase-card continuous-slide" data-index="2" data-project="2">
+                  <div class="showcase-media">
+                    <img src="assets/project-qvest.png?v=3" alt="Qvest Fractional Land Investment Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">Qvest</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A modern fractional land investment platform enabling users to purchase vetted Nigerian land by the square meter.
+                    </p>
+                    <a href="https://qvest.ng" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit Qvest website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- CYCLE 2 -->
+                <!-- Slide 3: Conspodium -->
+                <article class="showcase-card continuous-slide" data-index="3" data-project="0">
+                  <div class="showcase-media">
+                    <img src="assets/project-conspodium.png?v=3" alt="Conspodium Global Media & Community Publication Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">Conspodium</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A modern publishing and civic forum platform empowering scholars, activists, and leaders across the global diaspora.
+                    </p>
+                    <a href="https://conspodium.com" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit Conspodium website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Slide 4: VSO Table Tennis -->
+                <article class="showcase-card continuous-slide" data-index="4" data-project="1">
+                  <div class="showcase-media">
+                    <img src="assets/project-vsotabletennis.png?v=3" alt="VSO Table Tennis Youth Sports Development Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">VSO Table Tennis</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A grassroots sports development platform providing equipment, coaching, and championship training across schools in Lagos.
+                    </p>
+                    <a href="https://vsotabletennis.com" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit VSO Table Tennis website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Slide 5: Qvest -->
+                <article class="showcase-card continuous-slide" data-index="5" data-project="2">
+                  <div class="showcase-media">
+                    <img src="assets/project-qvest.png?v=3" alt="Qvest Fractional Land Investment Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">Qvest</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A modern fractional land investment platform enabling users to purchase vetted Nigerian land by the square meter.
+                    </p>
+                    <a href="https://qvest.ng" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit Qvest website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- CYCLE 3 -->
+                <!-- Slide 6: Conspodium -->
+                <article class="showcase-card continuous-slide" data-index="6" data-project="0">
+                  <div class="showcase-media">
+                    <img src="assets/project-conspodium.png?v=3" alt="Conspodium Global Media & Community Publication Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">Conspodium</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A modern publishing and civic forum platform empowering scholars, activists, and leaders across the global diaspora.
+                    </p>
+                    <a href="https://conspodium.com" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit Conspodium website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Slide 7: VSO Table Tennis -->
+                <article class="showcase-card continuous-slide" data-index="7" data-project="1">
+                  <div class="showcase-media">
+                    <img src="assets/project-vsotabletennis.png?v=3" alt="VSO Table Tennis Youth Sports Development Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">VSO Table Tennis</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A grassroots sports development platform providing equipment, coaching, and championship training across schools in Lagos.
+                    </p>
+                    <a href="https://vsotabletennis.com" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit VSO Table Tennis website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Slide 8: Qvest -->
+                <article class="showcase-card continuous-slide" data-index="8" data-project="2">
+                  <div class="showcase-media">
+                    <img src="assets/project-qvest.png?v=3" alt="Qvest Fractional Land Investment Platform" loading="eager">
+                  </div>
+                  <div class="showcase-info">
+                    <div class="showcase-info-header">
+                      <h4 class="showcase-title">Qvest</h4>
+                    </div>
+                    <p class="showcase-bio">
+                      A modern fractional land investment platform enabling users to purchase vetted Nigerian land by the square meter.
+                    </p>
+                    <a href="https://qvest.ng" target="_blank" rel="noopener noreferrer" class="showcase-visit-btn" aria-label="Visit Qvest website">
+                      <span>Visit Website</span>
+                      <span class="visit-arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+
+              </div>
+              <!-- Surreal 3D floor shadow cast by center card over container, dots, and continuation text -->
+              <div class="showcase-floor-shadow" aria-hidden="true"></div>
+            </div>
+
+            <button class="carousel-nav-btn next-btn" id="carousel-next-btn" aria-label="Next project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+          </div>
+
+          <!-- Carousel Dots / Pagination Pills -->
+          <div class="carousel-dots-wrap" id="carousel-dots-wrap">
+            <button class="carousel-dot active" data-index="0" aria-label="Slide 1 - Conspodium"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Slide 2 - VSO Table Tennis"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Slide 3 - Qvest"></button>
+          </div>
+
+          <p>There you have it.</p>
+
+          <p>
+            These projects give you a better idea of our capabilities than a paragraph full of claims ever could.
+          </p>
+
+          <p>
+            Every business has different requirements, and your website shouldn't be a carbon copy of someone else's.
+          </p>
+
+          <div class="cta-action-center">
+            <button class="sales-button open-modal-btn" data-source="Portfolio Section CTA">
+              <span>[LET'S DISCUSS YOUR PROJECT]</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 10 / 11) -->
+          <h2 class="section-headline">
+            This Is The Point Where You Ask “Why Choose 247Kraft”?
+          </h2>
+
+          <!-- PAGE 11 OF PDF -->
+          <p>Let's be honest...</p>
+
+          <p>You have options. Plenty of them, actually.</p>
+
+          <p>
+            You could hire one of those cheap freelance designers on Facebook Marketplace.
+          </p>
+
+          <p><em>Sheesh.</em></p>
+
+          <p>Good luck with that. Lol</p>
+
+          <p>
+            Or You could go with an agency that'll charge you half your life savings to build a simple one-page website.
+          </p>
+
+          <p>
+            You could even vibe code the whole thing yourself with AI.
+          </p>
+
+          <p>
+            That is, if you're comfortable with one of those fugly AI slop websites littering the internet.
+          </p>
+
+          <p>
+            Or better still, you can ask that 9-year-old genius cousin of yours who's apparently the next Elon Musk.
+          </p>
+
+          <p>
+            Your options are endless. Hey, I’m not here to tell you what to do with your money. 😂
+          </p>
+
+          <p>And maybe you already have a website that needs a little (or a lot of) work.</p>
+
+          <p>
+            <strong>We've helped multiple clients revamp their existing websites, and we'd be happy to help you give yours the same treatment.</strong>
+          </p>
+
+          <p>
+            But whether you're starting from scratch or looking to breathe new life into an existing website, we can't ask you not to consider your other options.
+          </p>
+
+          <p>
+            What we can do is show you why we believe 247Kraft is worth considering.
+          </p>
+
+          <p>So, seriously...</p>
+
+          <p><strong>Why should you choose 247Kraft?</strong></p>
+
+          <p>The reason is simple.</p>
+
+          <p>
+            Because you don't just need someone who can throw together a few pages and call it a website.
+          </p>
+
+          <p>
+            You need someone who understands that there's a business behind those pages.
+          </p>
+
+          <p>
+            Someone who can take that raw idea sitting in your head, understand what you're trying to achieve with your business, and turn it into a working website built around those goals.
+          </p>
+
+          <p>So here's what we are proposing…</p>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 12) -->
+          <h2 class="section-headline">
+            Before we build anything, we try to understand a few things about your business.
+          </h2>
+
+          <p>Who are your customers?</p>
+
+          <p>What are you selling?</p>
+
+          <p>What problems do you solve for them?</p>
+
+          <p>Why should they choose you over the alternatives?</p>
+
+          <p>And what do you want someone to do after visiting your website?</p>
+
+          <p>No, these aren't just questions we ask to fill out a project brief.</p>
+
+          <p class="text-red">
+            <strong>We just want to understand what you're trying to achieve before deciding how to approach the project.</strong>
+          </p>
+
+          <p>
+            Because the answers influence how we present your products and services, communicate your value, organize your pages, and guide visitors toward making an inquiry, requesting a quote, booking a service, or placing an order.
+          </p>
+
+          <p>
+            <strong>And yes, they influence the design, too.</strong>
+          </p>
+
+          <p>
+            The colours, layout, typography, images, and overall presentation should make sense for your business and the people you're trying to reach.
+          </p>
+
+          <p>
+            Because a website isn't just a collection of pretty pages.
+          </p>
+
+          <p>
+            It's something you're putting in front of potential customers.
+          </p>
+
+          <p>
+            And you want those people to see a business that looks credible and professional, understand what you offer and have a clear idea of what to do next.
+          </p>
+
+          <p>
+            <strong>That's the difference we're trying to make at 247Kraft.</strong>
+          </p>
+
+          <p>
+            We don't want you to walk away with just another website to maintain and renew every year.
+          </p>
+
+          <p>
+            We want to help you build something useful for your business. Something that supports your goals and has the potential to contribute to your growth over time.
+          </p>
+
+          <p>
+            And that's what we think you should be looking for when choosing someone to build your next website.
+          </p>
+
+          <p>
+            <strong>With this it can become an investment that contributes to your growth and, over time, helps pay for itself.</strong>
+          </p>
+
+          <!-- TESTIMONIAL SET 3 (SET OF 2 CLIENT SCREENSHOTS) -->
+          <div class="testimonial-set">
+            <div class="testimonial-grid">
+              <div class="testimonial-card">
+                <img src="assets/testimonials/testimonial-3608.jpg" alt="Client testimonial on business results" class="testimonial-card-img" loading="lazy">
+              </div>
+              <div class="testimonial-card">
+                <img src="assets/testimonials/testimonial-3610.jpg" alt="Client review of agency expertise" class="testimonial-card-img" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 13) -->
+          <h2 class="section-headline">
+            So, What Kind of Website Do You Have in Mind?
+          </h2>
+
+          <h3 class="sub-headline">Business Websites</h3>
+          <p>
+            Give your business a home online where potential customers can learn about what you do, explore your services, and find out how to work with you.
+          </p>
+          <p>
+            Whether you're a consultant, a service provider, or a business looking to establish a stronger online presence, we'll work with you to build a website that represents your business professionally.
+          </p>
+
+          <h3 class="sub-headline">Landing Pages</h3>
+          <p>
+            Got a product, service, or offer you want to put in front of potential customers?
+          </p>
+          <p>
+            A dedicated landing page gives you room to make your case, explain the value of your offer, and guide visitors toward taking action.
+          </p>
+          <p>
+            Whether that action is requesting a quote, booking a call, signing up, or making a purchase, we'll build the page around what you're trying to achieve.
+          </p>
+
+          <h3 class="sub-headline">E-commerce Websites</h3>
+          <p>
+            Ready to sell your products online?
+          </p>
+          <p>
+            We can build an online store where customers can browse your products, learn about what you're selling, and place orders.
+          </p>
+          <p>
+            We'll discuss your product range, how you want customers to shop, and the features your store needs.
+          </p>
+
+          <h3 class="sub-headline">Already Have a Website? Let's Give It a Second Look.</h3>
+          <p>
+            Maybe your old website doesn't represent the quality of your business anymore.
+          </p>
+          <p>
+            Maybe it looks outdated, is difficult to navigate, or doesn't communicate what you actually offer.
+          </p>
+          <p>
+            <em>Perhaps your previous designer did you dirty.</em>
+          </p>
+
+          <!-- PAGE 14 OF PDF -->
+          <p>
+            Or maybe the website is functional, but you've outgrown it and need something that better reflects where your business is today.
+          </p>
+          <p>
+            Whatever the case, you don't necessarily need to start from scratch.
+          </p>
+          <p>
+            Bring it to us.
+          </p>
+          <p>
+            We'll look at what you have, discuss what you'd like to improve, and work out whether a redesign or a more targeted set of changes makes the most sense.
+          </p>
+          <p>
+            And yes, that includes websites that need more than a fresh coat of paint.
+          </p>
+
+          <h3 class="sub-headline">Custom Websites and Web Applications</h3>
+          <p>
+            Got an idea that doesn't fit neatly into any of the categories above?
+          </p>
+          <p>
+            Maybe you need a particular feature, a custom workflow, or a web application built around the way your business operates.
+          </p>
+          <p>
+            Tell us what you're thinking.
+          </p>
+          <p>
+            We'll discuss what's possible and figure out the right approach for your project.
+          </p>
+
+          <h3 class="sub-headline">Or You're Not Quite Sure What You Need?</h3>
+          <p>No problem.</p>
+          <p>
+            You don't have to know all the technical details before talking to us.
+          </p>
+          <p>
+            Tell us about your business, what you're trying to accomplish, and what you have in mind.
+          </p>
+          <p>
+            We'll help you figure out what makes sense for your needs.
+          </p>
+
+          <div class="cta-action-center">
+            <button class="sales-button open-modal-btn" data-source="Capabilities CTA">
+              <span>[LET'S TALK ABOUT YOUR PROJECT]</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 14) -->
+          <h2 class="section-headline">
+            So, You See? Getting Your Next Website Built Is Simpler Than You Think…
+          </h2>
+
+          <div class="step-item">
+            <div class="step-title">1. Tell Us What You Need.</div>
+            <p>
+              Fill out a short form about your business, the website you have in mind, your budget, and your timeline.
+            </p>
+          </div>
+
+          <!-- PAGE 15 OF PDF -->
+          <div class="step-item">
+            <div class="step-title">2. Let's Talk About Your Project.</div>
+            <p>
+              You'll be redirected to WhatsApp, where we'll discuss your requirements, clarify the details, and talk about pricing and next steps.
+            </p>
+          </div>
+
+          <div class="step-item">
+            <div class="step-title">3. We Get to Work.</div>
+            <p>
+              Once we've agreed on the scope, pricing, and requirements, and you're ready to proceed, we'll start building your website.
+            </p>
+          </div>
+
+          <div class="step-item">
+            <div class="step-title">4. Review Your Website.</div>
+            <p>
+              You'll get the opportunity to review the work, share your feedback, and request the agreed-upon revisions.
+            </p>
+          </div>
+
+          <div class="step-item">
+            <div class="step-title">5. Get Ready to Go Live.</div>
+            <p>
+              Once everything is completed and approved, we'll help prepare your website for launch.
+            </p>
+          </div>
+
+          <p>That's the process.</p>
+
+          <p>
+            You tell us what you're trying to achieve. We'll work with you to turn it into a website.
+          </p>
+
+          <div class="cta-action-center">
+            <button class="sales-button open-modal-btn" data-source="Process Steps CTA">
+              <span>[LET'S DISCUSS YOUR PROJECT]</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 15) -->
+          <h2 class="section-headline">
+            Oh, You Are Still Scrolling…
+          </h2>
+
+          <p>Fair enough. 😂</p>
+
+          <p>I suppose I haven't quite convinced you yet.</p>
+
+          <p>
+            Or maybe you're the kind of person who likes to examine every little detail before making a decision.
+          </p>
+
+          <p>I can respect that.</p>
+
+          <p>
+            After all, we're talking about your business and your hard-earned money. You shouldn't be throwing either around carelessly.
+          </p>
+
+          <!-- PAGE 16 OF PDF -->
+          <p>But here's something worth thinking about…</p>
+
+          <p>
+            While you're thinking about whether your business needs a website, your business is still moving.
+          </p>
+
+          <p>You're still looking for customers.</p>
+
+          <p>You're still trying to get more people to notice what you do.</p>
+
+          <p>
+            You're still building your reputation, making sales, and figuring out how to take things to the next level.
+          </p>
+
+          <p>
+            And somewhere along the way, someone might hear about your business and decide to look you up.
+          </p>
+
+          <p>What happens when they do?</p>
+
+          <p>
+            Do they find a website that helps them understand what you offer, see what makes your business worth considering, and figure out how to work with you?
+          </p>
+
+          <p>
+            Or do they have to piece everything together from scattered social media posts, old pictures, and a WhatsApp conversation?
+          </p>
+
+          <p>Of course, you might be doing perfectly fine without a website today.</p>
+
+          <p>
+            <strong>But what if having the right one could make things a little easier for your business tomorrow?</strong>
+          </p>
+
+          <p>That's worth considering, isn't it?</p>
+
+          <p>Think about it my dear friend…</p>
+
+          <p>
+            And no, I'm not suggesting you rush into hiring us just because you've read this far.
+          </p>
+
+          <p>
+            I'm simply saying that if a website is something your business needs, there's little point in putting it off indefinitely while waiting for the perfect time.
+          </p>
+
+          <p>You don't have to figure everything out on your own, either.</p>
+
+          <p>
+            Tell us about your business, what you're trying to achieve, and the kind of website you have in mind.
+          </p>
+
+          <p>
+            We'll have a conversation, look at your requirements, and discuss what it would take to bring your idea to life.
+          </p>
+
+          <p>So Let's start with a conversation.</p>
+
+          <!-- PAGE 17 OF PDF -->
+          <p>
+            Click the button below, tell us a little about your business, and let's see what we can build together.
+          </p>
+
+          <div class="cta-action-center">
+            <button class="sales-button open-modal-btn" data-source="Closing Section CTA">
+              <span>[LET'S DISCUSS YOUR PROJECT]</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <p>
+            And who knows? This conversation might be the beginning of something good for your business.
+          </p>
+
+          <!-- PERSONAL FOUNDER SIGNOFF -->
+          <div class="letter-signoff">
+            <p class="signoff-closing">Anyhoo, i will see you in my whatsapp DM</p>
+            <p class="signoff-valediction">Talk soon,</p>
+            <div class="signoff-author">
+              <div class="author-name">Steving Felix</div>
+              <div class="author-role">Creative Director & Head Developer,</div>
+              <div class="author-company">247Kraft Media.</div>
+            </div>
+          </div>
+
+          <!-- CENTERED BIG HEADLINE (PAGE 17) -->
+          <h2 class="section-headline">
+            A Few Questions You Might Have
+          </h2>
+
+          <div class="faq-accordion-box">
+            
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>How much does a website cost?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  It depends on the type of website, the features you need, and the scope of the project.
+                </p>
+                <p>
+                  Tell us what you have in mind, and we'll discuss a suitable quote.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>How long does it take to build a website?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  Timelines depend on the complexity of the project, the content required, and how quickly feedback and materials are provided.
+                </p>
+                <p>
+                  We'll agree on a timeline before work begins.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>I already have a website. Can you redesign it?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  Yes. Tell us about your existing website, what you'd like to improve, and what isn't working for you. We'll discuss your options.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>Will my website work on mobile phones?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  Mobile responsiveness is part of our approach. Your website should adapt to different screen sizes and provide a usable experience across devices.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>Do I need to know exactly what I want?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  No. Having an idea helps, but you don't need to know the technical details.
+                </p>
+                <p>
+                  Tell us about your business, your goals, and what you have in mind. We'll work through the requirements together.
+                </p>
+              </div>
+            </div>
+
+            <!-- PAGE 18 OF PDF -->
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>Can you build an online store or a custom web application?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  We can discuss both. Feasibility, timelines, and costs depend on the features and requirements involved.
+                </p>
+                <p>
+                  Tell us about your idea so we can assess the project properly.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>Can you build my website using AI?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  Yes. We use AI and modern development tools as part of our workflow.
+                </p>
+                <p>
+                  The goal isn't simply to generate a website. It's to build something that fits your business requirements.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button class="faq-toggle-btn" aria-expanded="false">
+                <span>How do I get started?</span>
+                <span class="faq-toggle-icon">+</span>
+              </button>
+              <div class="faq-collapse-body">
+                <p>
+                  Click the button below and answer a few questions about your business and the website you need.
+                </p>
+                <p>
+                  You'll then be redirected to WhatsApp, where we can discuss your project and the next steps.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="cta-action-center" style="margin-top: 50px;">
+            <button class="sales-button open-modal-btn" data-source="FAQ CTA">
+              <span>[LET'S BUILD YOUR WEBSITE]</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+
+          <div class="letter-footer-meta">
+            <div>&copy; 2026 247Kraft Media. All rights reserved.</div>
+          </div>
+
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ====================================================================
+       FULL-SCREEN TYPEFORM-STYLE PROJECT QUESTIONNAIRE MODAL
+       - Dual Light/Dark Theme Adaptable
+       - Animated Ambient Background Layer
+       - Single-Question Micro-Steps with Dynamic Personalization
+       - Preserves All 8 Original Questions + Location Qualification
+       ==================================================================== -->
+  <div id="brief-modal" class="brief-modal-overlay fullscreen-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    
+    <!-- Animated Background Layer (Adapts dynamically to Light/Dark theme) -->
+    <div class="fs-modal-bg" aria-hidden="true">
+      <div class="fs-bg-ambient fs-bg-light"></div>
+      <div class="fs-bg-ambient fs-bg-dark"></div>
+      <div class="fs-glow-orb fs-orb-1"></div>
+      <div class="fs-glow-orb fs-orb-2"></div>
+      <div class="fs-glow-orb fs-orb-3"></div>
+      <div class="fs-grid-overlay"></div>
+    </div>
+
+    <!-- Top Navigation Bar & Progress Indicator -->
+    <header class="fs-modal-topbar">
+      <div class="fs-topbar-left">
+        <div class="fs-brand-chip">
+          <img src="assets/logo.jpg" alt="247Kraft" class="fs-brand-logo">
+          <span class="fs-brand-text">247Kraft Project Brief</span>
+        </div>
+      </div>
+      
+      <div class="fs-topbar-center">
+        <div class="fs-progress-container">
+          <div class="fs-progress-bar">
+            <div class="fs-progress-fill" id="fs-progress-fill" style="width: 11%;"></div>
+          </div>
+          <span class="fs-step-indicator" id="fs-step-indicator">Step 1 of 9</span>
+        </div>
+      </div>
+
+      <div class="fs-topbar-right">
+        <button type="button" class="fs-close-btn modal-close-trigger" aria-label="Close questionnaire">
+          <span class="esc-tag">ESC</span>
+          <span class="close-icon">✕</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Questionnaire Dialog Wrapper -->
+    <div class="fs-modal-dialog">
+      <form id="project-brief-form" class="fs-form" novalidate>
+        
+        <!-- STEP 1: Name -->
+        <div class="fs-pane active" data-step="1">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Hey there 👋</div>
+            <h2 class="fs-question-title">What's your name?</h2>
+            <p class="fs-helper-text">Your first name would do just fine.</p>
+            <div class="fs-input-wrap">
+              <input type="text" id="client_name" name="client_name" class="fs-underline-input" placeholder="e.g. Adebayo" autocomplete="given-name" required autofocus>
+              <div class="fs-input-line"></div>
+            </div>
+            <div class="fs-keyboard-hint">press <kbd>Enter ↵</kbd> or click Continue</div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Location (New Strategic Qualification) -->
+        <div class="fs-pane" data-step="2">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow dynamic-greeting">Nice to meet you, <span class="client-name-slot">Friend</span> 🙌</div>
+            <h2 class="fs-question-title">Where are you based?</h2>
+            <p class="fs-helper-text">This helps us match currencies (₦ / $ / £) and project timeline.</p>
+            <div class="fs-chip-grid">
+              <label class="fs-chip">
+                <input type="radio" name="location" value="Nigeria 🇳🇬" checked>
+                <span>Nigeria 🇳🇬</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="location" value="United Kingdom 🇬🇧">
+                <span>United Kingdom 🇬🇧</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="location" value="United States 🇺🇸">
+                <span>United States 🇺🇸</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="location" value="Canada 🇨🇦">
+                <span>Canada 🇨🇦</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="location" value="UAE 🇦🇪">
+                <span>UAE 🇦🇪</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="location" value="Other 🌍">
+                <span>Other 🌍</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Business / Brand Name (Original Q2) -->
+        <div class="fs-pane" data-step="3">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Great to have you here! 💡</div>
+            <h2 class="fs-question-title">What's the name of your business or brand?</h2>
+            <p class="fs-helper-text">No worries if it's a new idea or not officially registered yet.</p>
+            <div class="fs-input-wrap">
+              <input type="text" id="business_name" name="business_name" class="fs-underline-input" placeholder="e.g. Apex Living Ltd" required>
+              <div class="fs-input-line"></div>
+            </div>
+            <div class="fs-keyboard-hint">press <kbd>Enter ↵</kbd> or click Continue</div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Website / Project Type (Original Q3 + Categories) -->
+        <div class="fs-pane" data-step="4">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Got it! 🛠️</div>
+            <h2 class="fs-question-title">What kind of website or project do you need?</h2>
+            <p class="fs-helper-text">Select what best describes your project right now.</p>
+            <div class="fs-chip-grid">
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="Business website" checked>
+                <span>Business Website</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="Landing page">
+                <span>Landing Page / Sales Funnel</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="E-commerce website">
+                <span>E-Commerce Website</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="Custom website or web application">
+                <span>Custom Web App / SaaS</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="Mobile App Design">
+                <span>Mobile App Design</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="UI/UX & Branding">
+                <span>UI/UX & Branding</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="website_type" value="I'm not sure yet">
+                <span>I'm not sure yet</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: Current Situation (Original Q4) -->
+        <div class="fs-pane" data-step="5">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Starting point 📍</div>
+            <h2 class="fs-question-title">What's your current situation?</h2>
+            <p class="fs-helper-text">Helps us understand your starting point and existing assets.</p>
+            <div class="fs-chip-grid">
+              <label class="fs-chip">
+                <input type="radio" name="current_situation" value="I need a new website" checked>
+                <span>I need a new website</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="current_situation" value="I want to redesign my existing website">
+                <span>Redesign existing site</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="current_situation" value="I need new features added to my existing website">
+                <span>Add new features</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="current_situation" value="I have an idea and need help figuring it out">
+                <span>Have an idea to flesh out</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6: Main Goal (Original Q5) -->
+        <div class="fs-pane" data-step="6">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">The Breakthrough 🎯</div>
+            <h2 class="fs-question-title">What's the main goal of your website?</h2>
+            <p class="fs-helper-text">A short sentence is great—what #1 result must this site unlock?</p>
+            <div class="fs-input-wrap">
+              <input type="text" id="website_goal" name="website_goal" class="fs-underline-input" placeholder="e.g. Generate high-ticket B2B inquiries and direct orders" required>
+              <div class="fs-input-line"></div>
+            </div>
+            <div class="fs-keyboard-hint">press <kbd>Enter ↵</kbd> or click Continue</div>
+          </div>
+        </div>
+
+        <!-- STEP 7: Budget (Original Q6) -->
+        <div class="fs-pane" data-step="7">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Investment tier 💼</div>
+            <h2 class="fs-question-title">What's your estimated budget?</h2>
+            <p class="fs-helper-text">Helps us advise you on the most high-impact tech stack.</p>
+            <div class="fs-chip-grid">
+              <label class="fs-chip">
+                <input type="radio" name="budget" value="Under ₦100,000">
+                <span>Under ₦100,000</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="budget" value="₦100,000–₦250,000" checked>
+                <span>₦100,000–₦250,000</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="budget" value="₦250,000–₦500,000">
+                <span>₦250,000–₦500,000</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="budget" value="₦500,000+">
+                <span>₦500,000+</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="budget" value="Not sure yet">
+                <span>Flexible / Not sure yet</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 8: Timeline (Original Q7) -->
+        <div class="fs-pane" data-step="8">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Target launch ⏱️</div>
+            <h2 class="fs-question-title">When do you need this completed?</h2>
+            <p class="fs-helper-text">A rough timeline is completely fine.</p>
+            <div class="fs-chip-grid">
+              <label class="fs-chip">
+                <input type="radio" name="timeline" value="As soon as possible" checked>
+                <span>As soon as possible ⚡</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="timeline" value="Within 2–4 weeks">
+                <span>Within 2–4 weeks</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="timeline" value="Within 1–3 months">
+                <span>Within 1–3 months</span>
+              </label>
+              <label class="fs-chip">
+                <input type="radio" name="timeline" value="Just exploring options">
+                <span>Just exploring options</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 9: Additional Notes (Original Q8) & WhatsApp Dispatch -->
+        <div class="fs-pane" data-step="9">
+          <div class="fs-question-card">
+            <div class="fs-eyebrow">Almost done, <span class="client-name-slot">Friend</span>! 🚀</div>
+            <h2 class="fs-question-title">Anything else we should know?</h2>
+            <p class="fs-helper-text">Optional: Specific features, inspirations, or competitor links you love.</p>
+            <div class="fs-input-wrap">
+              <textarea id="additional_notes" name="additional_notes" class="fs-underline-textarea" rows="2" placeholder="e.g. We love clean minimal design, need Paystack integration..."></textarea>
+              <div class="fs-input-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Navigation Controls -->
+        <footer class="fs-modal-footer">
+          <div class="fs-footer-inner">
+            <button type="button" class="fs-btn fs-btn-back" id="fs-prev-btn" style="visibility: hidden;">
+              <span class="fs-btn-icon">‹</span>
+              <span>Back</span>
+            </button>
+            
+            <div class="fs-footer-right">
+              <button type="button" class="fs-btn fs-btn-next" id="fs-next-btn">
+                <span>Continue</span>
+                <span class="fs-btn-icon">›</span>
+              </button>
+              <button type="submit" class="fs-btn fs-btn-submit" id="fs-submit-btn" style="display: none;">
+                <span>Send To WhatsApp</span>
+                <span class="fs-btn-icon">💬 ↗</span>
+              </button>
+            </div>
+          </div>
+        </footer>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       UNIFIED FLOATING UTILITY DOCK (NIGHT MODE, SOUND, DYNAMIC SCROLL)
+       ==================================================================== -->
+  <aside class="floating-utility-dock" id="utility-dock" aria-label="Page controls">
+    <div class="dock-inner">
+      
+      <!-- Dynamic Smart Scroll Navigator (Appears on scroll) -->
+      <div class="dock-scroll-wrapper" id="dock-scroll-wrapper">
+        <button type="button" class="dock-btn scroll-nav-btn" id="scroll-nav-btn" aria-label="Scroll Navigator">
+          <div class="scroll-progress-ring" aria-hidden="true">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle-progress" id="scroll-progress-path"
+                stroke-dasharray="0, 100"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <svg class="scroll-arrow-svg" id="scroll-arrow-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </div>
+          <span class="dock-tooltip" id="scroll-tooltip">Scroll Down</span>
+        </button>
+      </div>
+
+      <!-- Audio Toggle (Sound Effects ON / OFF) with visible waves and clear cross sign -->
+      <button type="button" class="dock-btn sound-toggle-btn" id="sound-toggle-btn" aria-label="Toggle Sound Effects">
+        <svg class="dock-svg-icon sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.18"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <svg class="dock-svg-icon sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.18"></polygon>
+          <line x1="22" y1="9" x2="16" y2="15"></line>
+          <line x1="16" y1="9" x2="22" y2="15"></line>
+        </svg>
+        <span class="dock-tooltip" id="sound-tooltip">Audio Active</span>
+      </button>
+
+      <!-- Theme Toggle (Day / Midnight Cinema) with radiant Sun & Crescent Moon -->
+      <button type="button" class="dock-btn theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Midnight Mode">
+        <svg class="dock-svg-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" fill="currentColor" fill-opacity="0.25"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="dock-svg-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" fill-opacity="0.25"></path>
+        </svg>
+        <span class="dock-tooltip" id="theme-tooltip">Midnight Cinema</span>
+      </button>
+
+    </div>
+  <!-- ColorInvoice Floating Messenger Chat Trigger (Triggers Project Intake Popup) -->
+  <button type="button" class="colorinvoice-chat-fab open-modal-btn" data-source="Floating Chat" aria-label="Open Project Consultation Form">
+    <div class="chat-badge-counter">1</div>
+    <svg class="chat-fab-svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </button>
+
+
+  <!-- Motion (Framer Motion for vanilla web) -->
+  <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+  <script src="app.js?v=6"></script>
+</body>
+</html>
