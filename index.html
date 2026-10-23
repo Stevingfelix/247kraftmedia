@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>247Kraft — Can We Sell You Our Web Design Service With An Ugly Looking Website Like This?</title>
+  <title>247Kraft — Thinking Of Getting A Website For Your Business? Read This Before You Blow Your Money</title>
   <meta name="description" content="At 247Kraft, we turn ideas into working digital products and build bespoke websites tailored around your actual business goals.">
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
 
@@ -29,52 +29,48 @@
         </div>
       </a>
 
-      <!-- Center Navigation Links -->
+      <!-- Center Navigation Links (Option A: 2 Sales Letter Anchors + Academy) -->
       <nav class="site-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
           <li class="nav-item">
-            <a href="#about" class="nav-link">About Me</a>
+            <a href="#showcase-section" class="nav-link">Our Work</a>
+          </li>
+          <li class="nav-item">
+            <a href="#process-section" class="nav-link">Process</a>
           </li>
           <li class="nav-item dropdown">
-            <a href="#learn" class="nav-link dropdown-toggle" id="learn-menu-btn" aria-haspopup="true" aria-expanded="false">
-              <span>Learn From Me</span>
+            <a href="#academy" class="nav-link dropdown-toggle" id="academy-menu-btn" aria-haspopup="true" aria-expanded="false">
+              <span>Academy</span>
               <span class="nav-caret">▾</span>
             </a>
             <div class="nav-dropdown-card" role="menu">
-              <a href="#learn" class="dropdown-item-link" role="menuitem">
+              <a href="#academy" class="dropdown-item-link" role="menuitem">
                 <span class="dropdown-item-badge">💡</span>
                 <span class="dropdown-item-info">
                   <strong class="dropdown-title">Web Design Masterclass</strong>
-                  <small class="dropdown-desc">High-converting layouts & visual tactics</small>
+                  <span class="coming-soon-badge">Coming Soon</span>
                 </span>
               </a>
-              <a href="#mentorship" class="dropdown-item-link" role="menuitem">
+              <a href="#academy" class="dropdown-item-link" role="menuitem">
                 <span class="dropdown-item-badge">🚀</span>
                 <span class="dropdown-item-info">
                   <strong class="dropdown-title">1-on-1 Mentorship</strong>
-                  <small class="dropdown-desc">Direct feedback, design & code reviews</small>
+                  <span class="coming-soon-badge">Coming Soon</span>
                 </span>
               </a>
-              <a href="#guides" class="dropdown-item-link" role="menuitem">
+              <a href="#academy" class="dropdown-item-link" role="menuitem">
                 <span class="dropdown-item-badge">📚</span>
                 <span class="dropdown-item-info">
                   <strong class="dropdown-title">Free Design Resources</strong>
-                  <small class="dropdown-desc">Practical UI checklists for founders</small>
+                  <span class="coming-soon-badge">Coming Soon</span>
                 </span>
               </a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a href="#blog" class="nav-link">Blog</a>
           </li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <div class="availability-chip">
-          <span class="live-dot"></span>
-          <span>Available for New Projects</span>
-        </div>
         <button class="nav-cta-btn open-modal-btn" data-source="Header Nav">
           <span>Start A Project</span>
           <span class="btn-arrow">↗</span>
@@ -87,68 +83,78 @@
       </div>
     </div>
 
-    <!-- Mobile Nav Drawer (Hidden by default) -->
+    <!-- Full-Screen Mobile Navigation Menu with Sleek Venetian Blinds Animation -->
     <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-      <div class="mobile-nav-inner">
-        <a href="#about" class="mobile-nav-item">
-          <span>About Me</span>
-          <span class="m-arrow">→</span>
-        </a>
-        <a href="#learn" class="mobile-nav-item">
-          <span>Learn From Me</span>
-          <span class="m-arrow">→</span>
-        </a>
-        <a href="#blog" class="mobile-nav-item">
-          <span>Blog</span>
-          <span class="m-arrow">→</span>
-        </a>
-        <div class="mobile-nav-divider"></div>
-        <button class="nav-cta-btn open-modal-btn mobile-cta-btn" data-source="Mobile Menu">
-          <span>Start A Project</span>
-          <span class="btn-arrow">↗</span>
-        </button>
+      <!-- Blinds Shutter Slat Panels -->
+      <div class="blinds-backdrop" aria-hidden="true">
+        <div class="blind-slat" style="--i:0"></div>
+        <div class="blind-slat" style="--i:1"></div>
+        <div class="blind-slat" style="--i:2"></div>
+        <div class="blind-slat" style="--i:3"></div>
+        <div class="blind-slat" style="--i:4"></div>
+      </div>
+
+      <!-- Menu Content Container -->
+      <div class="mobile-nav-content">
+        <!-- Top bar with brand & close button -->
+        <div class="mobile-menu-topbar">
+          <div class="mobile-brand-slot">
+            <div class="brand-logo-badge">
+              <img src="assets/logo.jpg" alt="247Kraft Logo" class="brand-logo-img">
+            </div>
+            <span class="mobile-brand-title">247Kraft</span>
+          </div>
+          <button type="button" class="mobile-menu-close-btn" id="mobile-menu-close-btn" aria-label="Close Navigation Menu">
+            ✕
+          </button>
+        </div>
+
+        <div class="mobile-nav-inner">
+          <a href="#showcase-section" class="mobile-nav-item" style="--item-i:1">
+            <span>Our Work</span>
+            <span class="m-arrow">→</span>
+          </a>
+          <a href="#process-section" class="mobile-nav-item" style="--item-i:2">
+            <span>Process</span>
+            <span class="m-arrow">→</span>
+          </a>
+          <a href="#academy" class="mobile-nav-item" style="--item-i:3">
+            <span>Academy</span>
+            <span class="m-arrow">→</span>
+          </a>
+          
+          <div class="mobile-nav-divider"></div>
+          
+          <!-- Highly Prominent Visible Button -->
+          <div class="mobile-cta-wrapper" style="--item-i:4">
+            <button class="nav-cta-btn open-modal-btn mobile-cta-btn" data-source="Mobile Menu">
+              <span>Start A Project</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="colorinvoice-main-layout">
 
-    <!-- ColorInvoice Blog Article Header -->
+    <!-- Clean Editorial Article Header -->
     <div class="colorinvoice-article-wrapper">
       
-      <div class="article-breadcrumb-row" style="text-align: center;">
-        <a href="#blog" class="back-link">
-          <span class="arrow-back">←</span>
-          <span>Back to Blog</span>
-        </a>
-      </div>
-
-      <div class="article-meta-row" style="justify-content: center;">
-        <span class="category-pill-green">BEST PRACTICES</span>
-        <span class="article-date-meta">October 22, 2026 · 6 min read</span>
+      <!-- Subheadline Sitting Alone in Blue (No Background / No Outline) -->
+      <div class="hero-subheadline-eyebrow">
+        ATTENTION: All business owners, agency owners, and entrepreneurs
       </div>
 
       <h1 class="colorinvoice-article-title" style="text-align: center;">
-        Can We Sell You Our Web Design Service<br>
-        With An Ugly Looking Website Like This?
+        Thinking Of Getting A Website For Your Business?<br>
+        Read This Before You <span class="text-red">Blow</span> Your Money.
       </h1>
 
-      <!-- Author Byline -->
-      <div class="author-byline-card" style="justify-content: center;">
-        <div class="author-avatar-badge">
-          <img src="assets/logo.jpg" alt="247Kraft Author" class="author-avatar-img">
-        </div>
-        <div class="author-info-block" style="text-align: left;">
-          <span class="author-name">247Kraft</span>
-          <span class="author-role">Digital & Web Studio</span>
-        </div>
-      </div>
-
-      <!-- ColorInvoice Hero Illustration / Feature Banner Card housing Meme -->
-      <div class="hero-feature-banner">
-        <div class="hero-feature-inner">
-          <img src="assets/meme-two-buttons.jpg?v=4" alt="A sexy-looking website vs A website that serves your business" class="colorinvoice-feature-img">
-        </div>
+      <!-- Clean Hero Image (No Container Background Color) -->
+      <div class="hero-clean-image-wrap">
+        <img src="assets/meme-two-buttons.jpg?v=5" alt="A sexy-looking website vs A website that serves your business" class="hero-clean-img">
       </div>
 
       <!-- Editorial Body Container with Exact Original Copy, Sizes, Spacing, and Paragraphs -->
@@ -156,63 +162,51 @@
 
           <!-- PAGE 2 OF PDF -->
           <p style="font-size: 1.25rem; font-weight: 700;">
-            Dear Internet Stranger,
+            Spoilers.
           </p>
 
           <p>
-            You're probably wondering why a company that wants to design ‘beautiful’ websites for other businesses is trying to sell you its services with a website that looks like this.
+            You must be wondering if I'm about to reveal some <strong>BIG SECRET</strong>.
           </p>
 
           <p>
-            Naturally, you'd expect us to show off a stunning website of our own.
+            After all, who would want to blow their hard-earned money on a beautiful website that does absolutely nothing for their business?
           </p>
 
           <p>
-            Something with beautiful animations, fancy effects, and enough visual magic to make you say:
-          </p>
-
-          <p style="text-align: center; font-weight: 700; font-size: 1.15rem; margin: 24px 0;">
-            "Yep. These guys know what they're doing."
+            Not you, I suppose.
           </p>
 
           <p>
-            But instead, you're looking at this ugly looking website and you're probably wondering whether we've lost our minds.
+            And that's exactly why I'd like you to spare me about <strong>3 minutes</strong> of your time.
           </p>
 
           <p>
-            Fair enough. Lol.
+            Close any other browser tabs, turn off notifications, and get rid of anything that could distract you, if you can.
           </p>
 
           <p>
-            If I were looking for a web designer myself, I'd probably raise an eyebrow, too.
+            Your full attention is all I need, that’s all…
           </p>
 
           <p>
-            But here’s the thing…
+            Because before you hand over your money to a web designer, <strong>there are a few things I think you should know</strong>.
           </p>
 
           <p>
-            We're not asking you to hire us based on this page alone.
+            And no, it's not some complicated technical stuff about websites.
           </p>
 
           <p>
-            We'll show you actual websites we've built so you can judge the quality of our work for yourself.
+            It's something much simpler.
           </p>
 
           <p>
-            And yes, those websites look considerably better than this one. 😂
+            I’m talking about things that could help you make a better decision, avoid some costly mistakes, and understand <strong>what you should actually be looking for when hiring someone to build your website</strong>.
           </p>
 
           <p>
-            But before you run off to find someone with a prettier website and risk spending your money on a website that looks seksy but does little for your business…
-          </p>
-
-          <p>
-            Can we talk for a minute?
-          </p>
-
-          <p style="font-weight: 700;">
-            3mins, that’s all.
+            I will tell you abourrit in a bit
           </p>
 
           <!-- TESTIMONIAL SET 1 (ONLY FIRST TESTIMONIAL AT TOP OF PAGE) -->
@@ -224,11 +218,11 @@
 
           <!-- CENTERED BIG HEADLINE (PAGE 2) -->
           <h2 class="section-headline">
-            First, a question….
+            But First, a question….
           </h2>
 
           <p class="text-red">
-            <strong>When you pay someone to build you a professional looking website for your business, what exactly are you paying for?</strong>
+            <u><strong>When you pay someone to build you a professional looking website for your business, what exactly are you paying for?</strong></u>
           </p>
 
           <p>
@@ -316,11 +310,11 @@
           </p>
 
           <p>
-            They know how to make a website look good. I mean, beyond the colours, animations, beautiful layouts, and fancy effects…
+            They know how to make a website look good. The colours, animations, beautiful layouts, fancy effects... all that stuff.
           </p>
 
           <p>
-            They don't always stop to ask what the business actually needs that website to do.
+            But beyond that, they don't always stop to ask what the business actually needs that website to do.
           </p>
 
           <p>Things like…</p>
@@ -336,24 +330,19 @@
           <p>These questions matter, too.</p>
 
           <p class="text-red">
-            <strong>But the problem is that some web designers have the technical skills to build you a website but lack the business sense to ask these questions before they start building.</strong>
+            <strong>Because while some web designers have the technical skills to build you a website, they lack the business sense to ask these questions before they start building.</strong>
           </p>
 
           <p>
             They'll happily discuss your preferred colours, the kind of layout you want, the animations you'd like to see, and how beautiful you want the finished website to look.
           </p>
 
-          <!-- PAGE 5 OF PDF -->
           <p>
-            And there's nothing wrong with that.
+            And there's nothing wrong with wanting to build a beautiful website.
           </p>
 
           <p>
-            But guess what?
-          </p>
-
-          <p>
-            Knowing how to design a beautiful website and understanding what makes a website useful to a business are two different things.
+            But knowing how to design a beautiful website and understanding what makes a website useful to a business are two different things.
           </p>
 
           <!-- PAGE 5 ANIMATED GIF: ROLL SAFE "EXACTLY" (NO CORNERS, NO SHADOWS) -->
@@ -361,9 +350,8 @@
             <img src="assets/roll-safe-animated-exactly.gif" alt="Roll Safe tapping his temple - EXACTLY animated gif" class="sales-meme-img" style="max-width: 440px;">
           </div>
 
-          <!-- PAGE 5: EXACT FORMATTING SHOWN IN USER SCREENSHOT -->
           <p>
-            <strong>Now, does this mean that simply asking the right questions will magically make your website bring in more customers?</strong>
+            <strong>Now, does asking the right questions mean your website will magically bring in more customers?</strong>
           </p>
 
           <p>
@@ -371,44 +359,23 @@
           </p>
 
           <p>
-            Obviously, a website isn't a magic wand from Harry Porter.
+            A website isn't a magic wand from Harry Potter. 😂
           </p>
 
           <p>
-            Simply paying us to build you one doesn't automatically <strong>increase your visibility, attract more customers, generate sales or even elevate your brand’s prestige.</strong>
+            <strong>But the point is, if you're going to invest in a website, you should have a clear idea of what you want it to help you achieve.</strong>
           </p>
 
           <p>
-            <u>Infact</u>, if anyone promises you guaranteed sales just because you have a website, it’s a big friggin red flag.
+            Because the goal isn't just to own a website.
           </p>
 
           <p>
-            There. I said it.
-          </p>
-
-          <!-- PAGE 6 OF PDF -->
-          <p>
-            Listen, the point isn't that a website will magically grow your business.
+            It's to have something that presents your business professionally, helps potential customers understand what you offer, and makes it easier for them to take the next step.
           </p>
 
           <p>
-            <strong>It's that if you're going to invest in one, you should have a clear idea of what you want it to help you achieve.</strong>
-          </p>
-
-          <p>
-            Because the goal isn't to own a website.
-          </p>
-
-          <p>
-            The goal is to have something useful for your business.
-          </p>
-
-          <p>
-            Something that presents your business professionally while making it easier for potential customers to understand what you offer and take the next step.
-          </p>
-
-          <p>
-            <strong>And that's the kind of website we've been building for clients all over the planet</strong>
+            <strong>And that's the kind of website we've been building for clients all over the planet.</strong>
           </p>
 
           <!-- TESTIMONIAL STANDALONE SCREENSHOT 2 (AS REQUESTED) -->
@@ -472,47 +439,6 @@
 
           <p>
             WhatsApp to answer questions, send prices, and even close deals.
-          </p>
-
-          <p>
-            But here’s the thing…
-          </p>
-
-          <!-- CENTERED BIG HEADLINE (PAGE 7) -->
-          <h2 class="section-headline">
-            “A Website Can Become Another Revenue Source ‘If’ Done Properly.”
-          </h2>
-
-          <p>Think about it…</p>
-
-          <p>
-            Your social media profiles can help people discover your business or even do business with you.
-          </p>
-
-          <p>
-            Your website can take things a step further.
-          </p>
-
-          <p>
-            It gives potential customers a place to learn more about your business, understand what you're offering, and figure out how to take the next step.
-          </p>
-
-          <p>And the beautiful thing is, these channels don't have to compete with each other. They can work together.</p>
-
-          <p>For example…</p>
-
-          <p>
-            Someone discovers your business on Instagram, visits your website to learn more about your products, and then contacts you on WhatsApp to place an order.
-          </p>
-
-          <p>
-            Or someone sees your Facebook ad, lands on a page explaining your offer, and requests a quote.
-          </p>
-
-          <p>See how that works?</p>
-
-          <p>
-            Your website becomes another part of the process of turning people who discover your business into paying customers.
           </p>
 
           <p>But there's something else worth considering…</p>
@@ -664,7 +590,7 @@
             At 247Kraft, we use modern development tools and AI to turn ideas into working digital products.
           </p>
 
-          <h3 class="showcase-headline">
+          <h3 class="showcase-headline" id="showcase-section">
             See What We've Built Over The Years.
           </h3>
 
@@ -1137,7 +1063,7 @@
           </div>
 
           <!-- CENTERED BIG HEADLINE (PAGE 14) -->
-          <h2 class="section-headline">
+          <h2 class="section-headline" id="process-section">
             So, You See? Getting Your Next Website Built Is Simpler Than You Think…
           </h2>
 
@@ -1467,9 +1393,9 @@
       <div class="fs-topbar-center">
         <div class="fs-progress-container">
           <div class="fs-progress-bar">
-            <div class="fs-progress-fill" id="fs-progress-fill" style="width: 11%;"></div>
+            <div class="fs-progress-fill" id="fs-progress-fill" style="width: 10%;"></div>
           </div>
-          <span class="fs-step-indicator" id="fs-step-indicator">Step 1 of 9</span>
+          <span class="fs-step-indicator" id="fs-step-indicator">Step 1 of 10</span>
         </div>
       </div>
 
@@ -1505,31 +1431,43 @@
             <div class="fs-eyebrow dynamic-greeting">Nice to meet you, <span class="client-name-slot">Friend</span> 🙌</div>
             <h2 class="fs-question-title">Where are you based?</h2>
             <p class="fs-helper-text">This helps us match currencies (₦ / $ / £) and project timeline.</p>
-            <div class="fs-chip-grid">
-              <label class="fs-chip">
-                <input type="radio" name="location" value="Nigeria 🇳🇬" checked>
-                <span>Nigeria 🇳🇬</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="location" value="United Kingdom 🇬🇧">
-                <span>United Kingdom 🇬🇧</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="location" value="United States 🇺🇸">
-                <span>United States 🇺🇸</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="location" value="Canada 🇨🇦">
-                <span>Canada 🇨🇦</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="location" value="UAE 🇦🇪">
-                <span>UAE 🇦🇪</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="location" value="Other 🌍">
-                <span>Other 🌍</span>
-              </label>
+            <div class="fs-chip-carousel-wrap">
+              <button type="button" class="fs-chip-scroll-btn prev-btn" aria-label="Scroll options left" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="fs-chip-grid">
+                <label class="fs-chip">
+                  <input type="radio" name="location" value="Nigeria 🇳🇬" checked>
+                  <span>Nigeria 🇳🇬</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="location" value="United Kingdom 🇬🇧">
+                  <span>United Kingdom 🇬🇧</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="location" value="United States 🇺🇸">
+                  <span>United States 🇺🇸</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="location" value="Canada 🇨🇦">
+                  <span>Canada 🇨🇦</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="location" value="UAE 🇦🇪">
+                  <span>UAE 🇦🇪</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="location" value="Other 🌍">
+                  <span>Other 🌍</span>
+                </label>
+              </div>
+              <button type="button" class="fs-chip-scroll-btn next-btn" aria-label="Scroll options right" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -1554,35 +1492,51 @@
             <div class="fs-eyebrow">Got it! 🛠️</div>
             <h2 class="fs-question-title">What kind of website or project do you need?</h2>
             <p class="fs-helper-text">Select what best describes your project right now.</p>
-            <div class="fs-chip-grid">
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="Business website" checked>
-                <span>Business Website</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="Landing page">
-                <span>Landing Page / Sales Funnel</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="E-commerce website">
-                <span>E-Commerce Website</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="Custom website or web application">
-                <span>Custom Web App / SaaS</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="Mobile App Design">
-                <span>Mobile App Design</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="UI/UX & Branding">
-                <span>UI/UX & Branding</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="website_type" value="I'm not sure yet">
-                <span>I'm not sure yet</span>
-              </label>
+            <div class="fs-chip-carousel-wrap">
+              <button type="button" class="fs-chip-scroll-btn prev-btn" aria-label="Scroll options left" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="fs-chip-grid">
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="Business website" checked>
+                  <span>Business Website</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="Landing page">
+                  <span>Landing Page / Sales Funnel</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="E-commerce website">
+                  <span>E-Commerce Website</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="Custom website or web application">
+                  <span>Custom Web App / SaaS</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="Mobile App Design">
+                  <span>Mobile App Design</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="UI/UX & Branding">
+                  <span>UI/UX & Branding</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="Consulting">
+                  <span>Consulting</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="website_type" value="I'm not sure yet">
+                  <span>I'm not sure yet</span>
+                </label>
+              </div>
+              <button type="button" class="fs-chip-scroll-btn next-btn" aria-label="Scroll options right" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -1593,23 +1547,35 @@
             <div class="fs-eyebrow">Starting point 📍</div>
             <h2 class="fs-question-title">What's your current situation?</h2>
             <p class="fs-helper-text">Helps us understand your starting point and existing assets.</p>
-            <div class="fs-chip-grid">
-              <label class="fs-chip">
-                <input type="radio" name="current_situation" value="I need a new website" checked>
-                <span>I need a new website</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="current_situation" value="I want to redesign my existing website">
-                <span>Redesign existing site</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="current_situation" value="I need new features added to my existing website">
-                <span>Add new features</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="current_situation" value="I have an idea and need help figuring it out">
-                <span>Have an idea to flesh out</span>
-              </label>
+            <div class="fs-chip-carousel-wrap">
+              <button type="button" class="fs-chip-scroll-btn prev-btn" aria-label="Scroll options left" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="fs-chip-grid">
+                <label class="fs-chip">
+                  <input type="radio" name="current_situation" value="I need a new website" checked>
+                  <span>I need a new website</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="current_situation" value="I want to redesign my existing website">
+                  <span>Redesign existing site</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="current_situation" value="I need new features added to my existing website">
+                  <span>Add new features</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="current_situation" value="I have an idea and need help figuring it out">
+                  <span>Have an idea to flesh out</span>
+                </label>
+              </div>
+              <button type="button" class="fs-chip-scroll-btn next-btn" aria-label="Scroll options right" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -1634,27 +1600,35 @@
             <div class="fs-eyebrow">Investment tier 💼</div>
             <h2 class="fs-question-title">What's your estimated budget?</h2>
             <p class="fs-helper-text">Helps us advise you on the most high-impact tech stack.</p>
-            <div class="fs-chip-grid">
-              <label class="fs-chip">
-                <input type="radio" name="budget" value="Under ₦100,000">
-                <span>Under ₦100,000</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="budget" value="₦100,000–₦250,000" checked>
-                <span>₦100,000–₦250,000</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="budget" value="₦250,000–₦500,000">
-                <span>₦250,000–₦500,000</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="budget" value="₦500,000+">
-                <span>₦500,000+</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="budget" value="Not sure yet">
-                <span>Flexible / Not sure yet</span>
-              </label>
+            <div class="fs-chip-carousel-wrap">
+              <button type="button" class="fs-chip-scroll-btn prev-btn" aria-label="Scroll options left" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="fs-chip-grid" id="fs-budget-chips-grid">
+                <label class="fs-chip">
+                  <input type="radio" name="budget" value="₦100,000–₦250,000" checked>
+                  <span>₦100,000–₦250,000</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="budget" value="₦250,000–₦500,000">
+                  <span>₦250,000–₦500,000</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="budget" value="₦500,000+">
+                  <span>₦500,000+</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="budget" value="Flexible / Not sure yet">
+                  <span>Flexible / Not sure yet</span>
+                </label>
+              </div>
+              <button type="button" class="fs-chip-scroll-btn next-btn" aria-label="Scroll options right" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -1665,36 +1639,137 @@
             <div class="fs-eyebrow">Target launch ⏱️</div>
             <h2 class="fs-question-title">When do you need this completed?</h2>
             <p class="fs-helper-text">A rough timeline is completely fine.</p>
-            <div class="fs-chip-grid">
-              <label class="fs-chip">
-                <input type="radio" name="timeline" value="As soon as possible" checked>
-                <span>As soon as possible ⚡</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="timeline" value="Within 2–4 weeks">
-                <span>Within 2–4 weeks</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="timeline" value="Within 1–3 months">
-                <span>Within 1–3 months</span>
-              </label>
-              <label class="fs-chip">
-                <input type="radio" name="timeline" value="Just exploring options">
-                <span>Just exploring options</span>
-              </label>
+            <div class="fs-chip-carousel-wrap">
+              <button type="button" class="fs-chip-scroll-btn prev-btn" aria-label="Scroll options left" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="fs-chip-grid">
+                <label class="fs-chip">
+                  <input type="radio" name="timeline" value="As soon as possible" checked>
+                  <span>As soon as possible ⚡</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="timeline" value="Within 2–4 weeks">
+                  <span>Within 2–4 weeks</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="timeline" value="Within 1–3 months">
+                  <span>Within 1–3 months</span>
+                </label>
+                <label class="fs-chip">
+                  <input type="radio" name="timeline" value="Specific date" id="timeline-specific-radio">
+                  <span>Specific Date 📅</span>
+                </label>
+              </div>
+              <button type="button" class="fs-chip-scroll-btn next-btn" aria-label="Scroll options right" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
+
+            <!-- Sleek Bespoke Calendar Component (Appears when "Specific Date" is selected) -->
+            <div class="sleek-calendar-wrap" id="fs-date-picker-wrap" style="display: none;">
+              <input type="hidden" id="target_date" name="target_date" value="">
+              <div class="sleek-cal-card">
+                <div class="sleek-cal-top">
+                  <div class="sleek-cal-title-wrap">
+                    <span class="sleek-cal-badge">Select Launch Date 🗓️</span>
+                    <h4 class="sleek-cal-month-year" id="cal-month-year">October 2026</h4>
+                  </div>
+                  <div class="sleek-cal-arrows">
+                    <button type="button" class="cal-nav-btn" id="cal-prev-month" aria-label="Previous month">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                    </button>
+                    <button type="button" class="cal-nav-btn" id="cal-next-month" aria-label="Next month">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="sleek-cal-weekdays">
+                  <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                </div>
+
+                <div class="sleek-cal-days" id="cal-days-grid"></div>
+
+                <div class="sleek-cal-footer" id="cal-selected-bar" style="display: none;">
+                  <div class="cal-selected-info">
+                    <span class="cal-sel-icon">✓</span>
+                    <span class="cal-sel-text" id="cal-selected-text">Target: Oct 29, 2026</span>
+                  </div>
+                  <button type="button" class="cal-confirm-btn" id="cal-confirm-btn">Confirm Date ›</button>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- STEP 9: Additional Notes (Original Q8) & WhatsApp Dispatch -->
+        <!-- STEP 9: Project Details -->
         <div class="fs-pane" data-step="9">
           <div class="fs-question-card">
-            <div class="fs-eyebrow">Almost done, <span class="client-name-slot">Friend</span>! 🚀</div>
-            <h2 class="fs-question-title">Anything else we should know?</h2>
-            <p class="fs-helper-text">Optional: Specific features, inspirations, or competitor links you love.</p>
-            <div class="fs-input-wrap">
-              <textarea id="additional_notes" name="additional_notes" class="fs-underline-textarea" rows="2" placeholder="e.g. We love clean minimal design, need Paystack integration..."></textarea>
-              <div class="fs-input-line"></div>
+            <div class="fs-eyebrow">Almost done, <span class="client-name-slot">Friend</span>! 🎉</div>
+            <h2 class="fs-question-title">Can you provide a brief detail of the project?</h2>
+            <p class="fs-helper-text">Please provide a brief or project details. This is required.</p>
+            <div class="fs-textarea-wrap" style="margin-top: 18px;">
+              <textarea id="additional_notes" name="additional_notes" class="fs-textarea-box" rows="4" placeholder="Tell me more about your vision, goals, and requirements..." required></textarea>
+            </div>
+            <div class="fs-keyboard-hint">press <kbd>Ctrl+Enter ↵</kbd> or click Submit</div>
+          </div>
+        </div>
+
+        <!-- STEP 10: Dispatch Delivery Options (WhatsApp, Email, Call/Text) -->
+        <div class="fs-pane" data-step="10">
+          <div class="fs-question-card" style="text-align: center;">
+            <div class="fs-eyebrow" style="justify-content: center;">All done! 🎉</div>
+            <h2 class="fs-question-title" style="text-align: center;">How would you like to send this?</h2>
+            <p class="fs-helper-text" style="text-align: center; margin-bottom: 28px;">Choose your preferred method and your project details will be formatted and ready to send.</p>
+
+            <div class="dispatch-options-grid">
+              <!-- Send via WhatsApp -->
+              <button type="button" class="dispatch-card" id="dispatch-whatsapp-btn">
+                <div class="dispatch-icon-wrap icon-wa">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <div class="dispatch-card-title">Send via WhatsApp</div>
+                <div class="dispatch-card-desc">Opens WhatsApp with your details pre-filled</div>
+              </button>
+
+              <!-- Send via Email -->
+              <button type="button" class="dispatch-card" id="dispatch-email-btn">
+                <div class="dispatch-icon-wrap icon-email">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="dispatch-card-title">Send via Email</div>
+                <div class="dispatch-card-desc">Opens your email client with a draft ready</div>
+              </button>
+
+              <!-- Call or Text Us Instead with Sleek Modal Popup -->
+              <div class="dispatch-call-wrapper">
+                <button type="button" class="dispatch-card dispatch-card-full" id="dispatch-call-btn">
+                  <div class="dispatch-icon-wrap icon-call">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div class="dispatch-card-title">Call or text us instead</div>
+                  <div class="dispatch-card-desc">Provide your details and we'll reach out to you</div>
+                  <span class="dispatch-card-action-badge" id="callback-badge-hint">Click to enter your details ↗</span>
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -1712,15 +1787,77 @@
                 <span>Continue</span>
                 <span class="fs-btn-icon">›</span>
               </button>
-              <button type="submit" class="fs-btn fs-btn-submit" id="fs-submit-btn" style="display: none;">
-                <span>Send To WhatsApp</span>
-                <span class="fs-btn-icon">💬 ↗</span>
-              </button>
             </div>
           </div>
         </footer>
 
       </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       STEP 10 CALLBACK / TEXT POPUP MODAL & NOTIFICATION
+       ==================================================================== -->
+  <div class="callback-modal-overlay" id="callback-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="callback-modal-title">
+    <div class="callback-modal-backdrop" id="callback-modal-backdrop"></div>
+    <div class="callback-modal-card">
+      <button type="button" class="callback-modal-close" id="callback-modal-close" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- View 1: Input Contact Details Form -->
+      <div class="callback-modal-view" id="callback-modal-form-view">
+        <div class="callback-modal-header">
+          <div class="callback-modal-icon-badge">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <h3 class="callback-modal-title" id="callback-modal-title">Where should we call or text you?</h3>
+          <p class="callback-modal-desc">Enter your contact details and we will reach out to discuss your project.</p>
+        </div>
+
+        <div class="callback-modal-fields">
+          <div class="callback-field">
+            <label for="client_phone" class="callback-label">WhatsApp or Phone Number <span class="required-star">*</span></label>
+            <div class="callback-input-wrap">
+              <span class="callback-prefix-icon">📞</span>
+              <input type="tel" id="client_phone" name="client_phone" class="callback-input" placeholder="e.g. 0810 277 0008 or +234..." autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="callback-field">
+            <label for="client_email" class="callback-label">Email Address <span class="required-star">*</span></label>
+            <div class="callback-input-wrap">
+              <span class="callback-prefix-icon">✉️</span>
+              <input type="email" id="client_email" name="client_email" class="callback-input" placeholder="e.g. name@company.com" autocomplete="email">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="callback-submit-btn" id="callback-submit-btn">
+          <span>Request Call or Text</span>
+          <span class="fs-btn-icon">✓</span>
+        </button>
+      </div>
+
+      <!-- View 2: Popup Success Notification -->
+      <div class="callback-modal-view callback-success-view" id="callback-modal-success-view" style="display: none;">
+        <div class="callback-success-icon-badge">🎉</div>
+        <h3 class="callback-modal-title">We Have Your Project Details! 🎉</h3>
+        <p class="callback-success-message">
+          Thank you, <span class="client-name-slot">Friend</span>! We have your project details and will call or text you shortly on this number.
+        </p>
+        <div class="callback-success-details-pill" id="callback-success-contact-pill"></div>
+        <button type="button" class="callback-done-btn" id="callback-modal-done-btn">
+          <span>Done</span>
+          <span class="fs-btn-icon">✓</span>
+        </button>
+      </div>
+
     </div>
   </div>
 
@@ -1752,20 +1889,36 @@
         </button>
       </div>
 
-      <!-- Audio Toggle (Sound Effects ON / OFF) with visible waves and clear cross sign -->
-      <button type="button" class="dock-btn sound-toggle-btn" id="sound-toggle-btn" aria-label="Toggle Sound Effects">
-        <svg class="dock-svg-icon sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.18"></polygon>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-        </svg>
-        <svg class="dock-svg-icon sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.18"></polygon>
-          <line x1="22" y1="9" x2="16" y2="15"></line>
-          <line x1="16" y1="9" x2="22" y2="15"></line>
-        </svg>
+      <!-- Interactive Audio Capsule (Mute Toggle + Expandable Slider Knob) -->
+      <div class="sound-capsule-wrapper" id="sound-capsule-wrapper">
+        <div class="sound-capsule" id="sound-capsule">
+          
+          <!-- Speaker Icon Button (Single click to mute/unmute) -->
+          <button type="button" class="dock-btn sound-toggle-btn" id="sound-toggle-btn" aria-label="Toggle Sound Effects">
+            <svg class="dock-svg-icon sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.18"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+            <svg class="dock-svg-icon sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.18"></polygon>
+              <line x1="22" y1="9" x2="16" y2="15"></line>
+              <line x1="16" y1="9" x2="22" y2="15"></line>
+            </svg>
+          </button>
+
+          <!-- Horizontal Volume Scrub Controller (Reveals on hover/expand) -->
+          <div class="sound-slider-tray" id="sound-slider-tray">
+            <div class="sound-slider-track-wrap">
+              <input type="range" min="0" max="100" value="75" class="sound-volume-slider" id="sound-volume-slider" aria-label="Adjust sound volume">
+              <div class="sound-slider-fill" id="sound-slider-fill" style="width: 75%;"></div>
+            </div>
+            <span class="sound-volume-label" id="sound-volume-label">75%</span>
+          </div>
+
+        </div>
         <span class="dock-tooltip" id="sound-tooltip">Audio Active</span>
-      </button>
+      </div>
 
       <!-- Theme Toggle (Day / Midnight Cinema) with radiant Sun & Crescent Moon -->
       <button type="button" class="dock-btn theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Midnight Mode">
@@ -1787,14 +1940,49 @@
       </button>
 
     </div>
-  <!-- ColorInvoice Floating Messenger Chat Trigger (Triggers Project Intake Popup) -->
-  <button type="button" class="colorinvoice-chat-fab open-modal-btn" data-source="Floating Chat" aria-label="Open Project Consultation Form">
-    <div class="chat-badge-counter">1</div>
-    <svg class="chat-fab-svg" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-    </svg>
-  </button>
 
+
+  <!-- ====================================================================
+       MACOS-STYLE RESUME PROJECT BRIEF NOTIFICATION
+       ==================================================================== -->
+  <div class="mac-notification-banner" id="mac-resume-notification" role="alert" aria-live="polite" aria-hidden="true">
+    <div class="mac-notif-header">
+      <div class="mac-notif-app-info">
+        <img src="assets/logo.jpg" alt="247Kraft" class="mac-notif-app-icon">
+        <span class="mac-notif-app-name">247KRAFT</span>
+        <span class="mac-notif-bullet">•</span>
+        <span class="mac-notif-category">PROJECT BRIEF</span>
+      </div>
+      <div class="mac-notif-meta">
+        <span class="mac-notif-time">just now</span>
+        <button type="button" class="mac-notif-close-btn" id="mac-notif-close-btn" aria-label="Dismiss notification">✕</button>
+      </div>
+    </div>
+
+    <div class="mac-notif-body">
+      <div class="mac-notif-text-wrap">
+        <h4 class="mac-notif-title">Pick up where you stopped</h4>
+        <p class="mac-notif-desc" id="mac-notif-desc">
+          Ready to finish? We saved your project progress at <strong id="mac-notif-step-name">Step 2: Location</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="mac-notif-actions">
+      <button type="button" class="mac-notif-btn mac-notif-btn-secondary" id="mac-notif-later-btn">Later</button>
+      <button type="button" class="mac-notif-btn mac-notif-btn-primary" id="mac-notif-resume-btn">
+        <span>Resume Brief</span>
+        <span class="mac-notif-btn-arrow">›</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       COGNITO FORMS SEAMLESS INTEGRATION CONTAINER
+       ==================================================================== -->
+  <div id="cognito-seamless-mount" class="cognito-seamless-container" style="position: absolute; left: -9999px; top: 0; width: 640px; height: 640px; opacity: 0.01; pointer-events: none; overflow: hidden;" aria-hidden="true">
+    <script src="https://www.cognitoforms.com/f/seamless.js" data-key="_qdXLo3INUO_QOZTbQUzYA" data-form="13"></script>
+  </div>
 
   <!-- Motion (Framer Motion for vanilla web) -->
   <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
