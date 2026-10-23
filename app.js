@@ -722,8 +722,13 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // Synchronize active step UI state cleanly
-    switchStep(currentActiveStep || 1);
+    // If previously completed at Step 10, start fresh at Step 1
+    if (currentActiveStep >= TOTAL_STEPS) {
+      resetBriefForm();
+    } else {
+      // Synchronize active step UI state cleanly
+      switchStep(currentActiveStep || 1);
+    }
 
     if (typeof saveBriefDraft === 'function') saveBriefDraft();
 
@@ -731,6 +736,20 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       focusCurrentStepInput();
     }, 180);
+  }
+
+  function resetBriefForm() {
+    currentActiveStep = 1;
+    localStorage.removeItem('247kraft_brief_draft');
+    if (form) form.reset();
+    document.body.classList.remove('on-step-10');
+    const s9Email = document.getElementById('step9_client_email');
+    if (s9Email) s9Email.value = '';
+    const s9Phone = document.getElementById('step9_client_phone');
+    if (s9Phone) s9Phone.value = '';
+    const notes = document.getElementById('additional_notes');
+    if (notes) notes.value = '';
+    switchStep(1);
   }
 
   function closeBriefModal() {
@@ -747,9 +766,15 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
 
-    // Auto-save progress and schedule in-session macOS reminder if unfinished
-    if (typeof saveBriefDraft === 'function') saveBriefDraft();
-    if (typeof scheduleInactivityResumeReminder === 'function') scheduleInactivityResumeReminder();
+    // If closing after reaching or finishing Step 10, start fresh next time
+    if (currentActiveStep >= TOTAL_STEPS) {
+      setTimeout(() => {
+        resetBriefForm();
+      }, 250);
+    } else {
+      if (typeof saveBriefDraft === 'function') saveBriefDraft();
+      if (typeof scheduleInactivityResumeReminder === 'function') scheduleInactivityResumeReminder();
+    }
   }
 
   openButtons.forEach(btn => {
@@ -2025,6 +2050,16 @@ ${data.name}`
     });
   }
 
+  // Step 10: Start Fresh / Reset Brief Link
+  const step10RestartLink = document.getElementById('step10-restart-link');
+  if (step10RestartLink) {
+    step10RestartLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof playButtonClickSound === 'function') playButtonClickSound();
+      resetBriefForm();
+    });
+  }
+
   function openCallbackModal() {
     if (!callbackModal) return;
     if (typeof playButtonClickSound === 'function') playButtonClickSound();
@@ -2445,6 +2480,32 @@ ${data.name}`
       }
     });
 
+    let isInteractingVolume = false;
+
+    soundVolumeSlider.addEventListener('touchstart', (e) => {
+      isInteractingVolume = true;
+      e.stopPropagation();
+    }, { passive: true });
+
+    soundVolumeSlider.addEventListener('mousedown', (e) => {
+      isInteractingVolume = true;
+      e.stopPropagation();
+    });
+
+    soundVolumeSlider.addEventListener('touchend', () => {
+      setTimeout(() => { isInteractingVolume = false; }, 300);
+      soundVolumeSlider.blur();
+    });
+
+    soundVolumeSlider.addEventListener('touchcancel', () => {
+      isInteractingVolume = false;
+    });
+
+    soundVolumeSlider.addEventListener('mouseup', () => {
+      setTimeout(() => { isInteractingVolume = false; }, 300);
+      soundVolumeSlider.blur();
+    });
+
     soundVolumeSlider.addEventListener('click', (e) => {
       e.stopPropagation();
     });
@@ -2452,19 +2513,14 @@ ${data.name}`
     soundVolumeSlider.addEventListener('change', () => {
       soundVolumeSlider.blur();
     });
-
-    soundVolumeSlider.addEventListener('mouseup', () => {
-      soundVolumeSlider.blur();
-    });
-
-    soundVolumeSlider.addEventListener('touchend', () => {
-      soundVolumeSlider.blur();
-    });
   }
 
-  // 3. Auto-collapse sound capsule when user scrolls or moves touch
-  function collapseSoundCapsule() {
-    if (soundCapsule) {
+  // 3. Auto-collapse sound capsule when user scrolls the page (ignoring slider drags)
+  function collapseSoundCapsule(e) {
+    if (isInteractingVolume) return;
+    if (e && e.target && soundCapsuleWrapper && soundCapsuleWrapper.contains(e.target)) return;
+
+    if (soundCapsule && soundCapsule.classList.contains('is-expanded')) {
       soundCapsule.classList.remove('is-expanded');
       soundCapsule.classList.add('force-collapsed');
       setTimeout(() => {

@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
 
@@ -1773,8 +1773,13 @@
               </div>
             </div>
 
-            <h2 class="fs-question-title step10-stagger-text" style="text-align: center;">How would you like to send this?</h2>
-            <p class="fs-helper-text step10-stagger-text" style="text-align: center; margin-bottom: 28px;">Choose your preferred method and your project details will be formatted and ready to send.</p>
+            <h2 class="fs-question-title step10-stagger-text" style="text-align: center;">One Last Step — Deliver Your Brief To Us!</h2>
+            <p class="fs-helper-text step10-stagger-text" style="text-align: center; margin-bottom: 16px;">We've organized all your project answers into a complete brief. Choose how you'd like to deliver it to our team so we can review your scope and get right back to you:</p>
+
+            <div class="step10-explainer-banner step10-stagger-text">
+              <span>⚡</span>
+              <span>Tap an option below to deliver your brief directly to our team. We usually respond within a few hours!</span>
+            </div>
 
             <div class="dispatch-options-grid">
               <!-- Send via WhatsApp -->
@@ -1784,8 +1789,8 @@
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>
                 </div>
-                <div class="dispatch-card-title">Send via WhatsApp</div>
-                <div class="dispatch-card-desc">Opens WhatsApp with your details pre-filled</div>
+                <div class="dispatch-card-title">Send via WhatsApp <span style="font-size: 0.72rem; color: #16a34a; font-weight: 700; background: rgba(22, 163, 74, 0.12); padding: 2px 7px; border-radius: 999px; margin-left: 4px;">FASTEST</span></div>
+                <div class="dispatch-card-desc">Opens WhatsApp with your project brief formatted and ready to send</div>
               </button>
 
               <!-- Send via Email -->
@@ -1797,7 +1802,7 @@
                   </svg>
                 </div>
                 <div class="dispatch-card-title">Send via Email</div>
-                <div class="dispatch-card-desc">Opens your email client with a draft ready</div>
+                <div class="dispatch-card-desc">Prepares a formatted email with your scope directly to our studio</div>
               </button>
 
               <!-- Call or Text Us Instead with Sleek Modal Popup -->
@@ -1809,12 +1814,17 @@
                     </svg>
                   </div>
                   <div class="dispatch-card-title">Call or text us instead</div>
-                  <div class="dispatch-card-desc">Provide your details and we'll reach out to you</div>
+                  <div class="dispatch-card-desc">Leave your phone number and we will call or text you</div>
                   <span class="dispatch-card-action-badge" id="callback-badge-hint">Click to enter your details ↗</span>
                 </button>
               </div>
 
             </div>
+
+            <!-- Start Over button -->
+            <button type="button" class="step10-restart-link" id="step10-restart-link">
+              <span>↺</span> Need to change your answers? Start fresh
+            </button>
           </div>
         </div>
 

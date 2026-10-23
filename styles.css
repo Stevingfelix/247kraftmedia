@@ -3537,6 +3537,63 @@ body.dark-theme .dispatch-card.active-modal-open {
   box-shadow: 0 8px 28px rgba(56, 189, 248, 0.3) !important;
 }
 
+/* Step 10 Explainer Banner & Restart Brief Link */
+.step10-explainer-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 620px;
+  margin: 0 auto 24px auto;
+  padding: 10px 20px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #0369a1;
+  line-height: 1.4;
+  text-align: center;
+}
+
+body.dark-theme .step10-explainer-banner {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.28);
+  color: #7dd3fc;
+}
+
+.step10-restart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 24px auto 0 auto;
+  padding: 8px 18px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.step10-restart-link:hover {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+body.dark-theme .step10-restart-link {
+  color: #94a3b8;
+}
+
+body.dark-theme .step10-restart-link:hover {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+}
+
 /* --- Callback Popup Modal Overlay & Card --- */
 .callback-modal-overlay {
   position: fixed;
@@ -3988,8 +4045,8 @@ body.dark-theme .fs-chip-carousel-wrap::after {
 
 .fs-chip-scroll-btn {
   position: absolute;
-  top: calc(50% - 2px);
-  transform: translateY(-50%) scale(0.9);
+  top: 50% !important;
+  transform: translateY(-50%) scale(0.9) !important;
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -4020,19 +4077,19 @@ body.dark-theme .fs-chip-carousel-wrap::after {
 .fs-chip-scroll-btn.visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-50%) scale(1);
+  transform: translateY(-50%) scale(1) !important;
 }
 
 .fs-chip-scroll-btn:hover {
   background: #ffffff;
   border-color: #0284c7;
   color: #0284c7;
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.08) !important;
   box-shadow: 0 6px 20px rgba(2, 132, 199, 0.28);
 }
 
 .fs-chip-scroll-btn:active {
-  transform: translateY(-50%) scale(0.94);
+  transform: translateY(-50%) scale(0.94) !important;
 }
 
 body.dark-theme .fs-chip-scroll-btn {
@@ -4051,14 +4108,20 @@ body.dark-theme .fs-chip-scroll-btn:hover {
 
 @media (max-width: 640px) {
   .fs-chip-scroll-btn {
-    width: 32px;
-    height: 32px;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    top: 50% !important;
+    transform: translateY(-50%) scale(0.9) !important;
+  }
+  .fs-chip-scroll-btn.visible {
+    transform: translateY(-50%) scale(1) !important;
   }
   .fs-chip-scroll-btn.prev-btn {
-    left: 2px;
+    left: -2px !important;
   }
   .fs-chip-scroll-btn.next-btn {
-    right: 2px;
+    right: -2px !important;
   }
 }
 
@@ -4072,8 +4135,8 @@ body.dark-theme .fs-chip-scroll-btn:hover {
   max-width: 100% !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  padding: 12px 10px 28px 10px !important;
-  margin-bottom: -16px !important;
+  padding: 10px 8px 10px 8px !important;
+  margin-bottom: 0 !important;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -4491,6 +4554,14 @@ body.dark-theme .fs-btn-submit:hover {
 /* Hide landing page scroll button when modal questionnaire is active */
 body:has(.fullscreen-modal.open) #dock-scroll-wrapper {
   display: none !important;
+}
+
+/* Hide floating utility dock when full screen mobile navigation drawer is open */
+body:has(.mobile-nav-drawer.open) .floating-utility-dock,
+.mobile-nav-drawer.open ~ .floating-utility-dock {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .dock-inner {
@@ -5408,7 +5479,37 @@ html {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    z-index: 1500;
+    z-index: 100005 !important;
+  }
+
+  /* When fullscreen project modal is open: move floating icons to the side so they don't cover footer buttons! */
+  body:has(.fullscreen-modal.open) .floating-utility-dock {
+    bottom: 84px !important;
+    right: 14px !important;
+    left: auto !important;
+    transform: none !important;
+    z-index: 100005 !important;
+    display: flex !important;
+  }
+
+  body:has(.fullscreen-modal.open) .dock-inner {
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* On fullscreen mobile navigation drawer: HIDE the floating icons completely */
+  body:has(.mobile-nav-drawer.open) .floating-utility-dock,
+  .mobile-nav-drawer.open ~ .floating-utility-dock {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
   .dock-inner {
