@@ -386,6 +386,141 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 8. Gamified Step 10 Victory Celebration Sound (Triumphant 4-tone shimmering arpeggio chord)
+  function playStep10SuccessSound() {
+    if (!isSoundEnabled || soundVolume <= 0) return;
+    try {
+      initAudioContext();
+      if (!audioCtx) return;
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      const now = audioCtx.currentTime;
+      const master = audioCtx.createGain();
+      master.connect(audioCtx.destination);
+      master.gain.setValueAtTime(0.42 * soundVolume, now);
+
+      // Notes: C5 (523.25Hz), E5 (659.25Hz), G5 (783.99Hz), C6 (1046.5Hz)
+      const chordNotes = [
+        { freq: 523.25, time: 0.00, dur: 0.85, vol: 0.35, type: 'sine' },
+        { freq: 659.25, time: 0.08, dur: 0.90, vol: 0.38, type: 'sine' },
+        { freq: 783.99, time: 0.16, dur: 0.95, vol: 0.40, type: 'sine' },
+        { freq: 1046.50, time: 0.24, dur: 1.15, vol: 0.45, type: 'sine' },
+        { freq: 2093.00, time: 0.28, dur: 0.70, vol: 0.18, type: 'triangle' } // Crystal harmonic shimmer
+      ];
+
+      chordNotes.forEach(note => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = note.type;
+        osc.frequency.setValueAtTime(note.freq, now + note.time);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.setValueAtTime(note.vol, now + note.time);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + note.time + note.dur);
+
+        osc.connect(gain);
+        gain.connect(master);
+
+        osc.start(now + note.time);
+        osc.stop(now + note.time + note.dur + 0.01);
+      });
+    } catch (e) {
+      console.warn('Step 10 victory sound error:', e);
+    }
+  }
+
+  /* ==========================================================================
+     GAMIFIED STEP 10 CONFETTI & CELEBRATION ENGINE
+     ========================================================================== */
+  let confettiAnimId = null;
+
+  function triggerStep10Confetti() {
+    const canvas = document.getElementById('step10-confetti-canvas');
+    if (!canvas) return;
+
+    if (confettiAnimId) {
+      cancelAnimationFrame(confettiAnimId);
+      confettiAnimId = null;
+    }
+
+    const ctx = canvas.getContext('2d');
+    const width = 260;
+    const height = 260;
+    canvas.width = width * (window.devicePixelRatio || 1);
+    canvas.height = height * (window.devicePixelRatio || 1);
+    ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+
+    const colors = ['#10b981', '#0284c7', '#38bdf8', '#f59e0b', '#ec4899', '#8b5cf6'];
+    const particles = [];
+    const particleCount = 38;
+    const originX = width / 2;
+    const originY = height / 2;
+
+    for (let i = 0; i < particleCount; i++) {
+      const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.45;
+      const speed = 3.6 + Math.random() * 4.6;
+      particles.push({
+        x: originX,
+        y: originY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 1.4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: 4 + Math.random() * 4.5,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 14,
+        wobble: Math.random() * Math.PI,
+        wobbleSpeed: 0.08 + Math.random() * 0.06,
+        alpha: 1,
+        decay: 0.014 + Math.random() * 0.01
+      });
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, width, height);
+      let alive = false;
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.95;
+        p.vy = p.vy * 0.95 + 0.12; // soft gravity
+        p.rotation += p.rotationSpeed;
+        p.wobble += p.wobbleSpeed;
+        p.alpha -= p.decay;
+
+        if (p.alpha > 0.01) {
+          alive = true;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.scale(Math.cos(p.wobble), 1);
+          ctx.globalAlpha = Math.max(0, p.alpha);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.65);
+          ctx.restore();
+        }
+      });
+
+      if (alive) {
+        confettiAnimId = requestAnimationFrame(render);
+      } else {
+        ctx.clearRect(0, 0, width, height);
+        confettiAnimId = null;
+      }
+    }
+
+    confettiAnimId = requestAnimationFrame(render);
+  }
+
+  function triggerStep10Celebration() {
+    playStep10SuccessSound();
+    setTimeout(() => {
+      triggerStep10Confetti();
+    }, 240);
+  }
+
+  window.triggerStep10Celebration = triggerStep10Celebration;
+
   // Pre-unlock audio on first touch/pointer event
   document.addEventListener('pointerdown', initAudioContext, { once: true });
   document.addEventListener('touchstart', initAudioContext, { once: true });
@@ -692,6 +827,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (fsNextBtn) fsNextBtn.style.display = 'none';
       if (fsSubmitBtn) fsSubmitBtn.style.display = 'none';
+
+      // Gamified Step 10 Celebration & Victory Chime
+      if (typeof triggerStep10Celebration === 'function') {
+        setTimeout(triggerStep10Celebration, 80);
+      }
     } else {
       document.body.classList.remove('on-step-10');
       if (modalFooter) modalFooter.style.display = 'block';
@@ -855,8 +995,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const notes = (formData.get('additional_notes') || '').trim() || 'None provided';
     const phoneInput = document.getElementById('client_phone');
     const emailInput = document.getElementById('client_email');
-    const phone = (formData.get('client_phone') || (phoneInput ? phoneInput.value : '') || '').trim() || 'Not provided';
-    const email = (formData.get('client_email') || (emailInput ? emailInput.value : '') || '').trim() || 'Not provided';
+    const s9Phone = document.getElementById('step9_client_phone');
+    const s9Email = document.getElementById('step9_client_email');
+    const phone = (formData.get('client_phone') || (s9Phone ? s9Phone.value : '') || (phoneInput ? phoneInput.value : '') || '').trim() || 'Not provided';
+    const email = (formData.get('client_email') || (s9Email ? s9Email.value : '') || (emailInput ? emailInput.value : '') || '').trim() || 'Not provided';
     return { name, location, businessName, websiteType, situation, goal, budget, timeline, notes, phone, email };
   }
 
@@ -1190,6 +1332,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const nInput = document.getElementById('additional_notes');
       if (nInput && d.notes && d.notes !== 'None provided') {
         nInput.value = d.notes;
+      }
+      if (d.email && d.email !== 'Not provided') {
+        const s9Email = document.getElementById('step9_client_email');
+        if (s9Email) s9Email.value = d.email;
+        const cEmail = document.getElementById('client_email');
+        if (cEmail) cEmail.value = d.email;
+      }
+      if (d.phone && d.phone !== 'Not provided') {
+        const s9Phone = document.getElementById('step9_client_phone');
+        if (s9Phone) s9Phone.value = d.phone;
+        const cPhone = document.getElementById('client_phone');
+        if (cPhone) cPhone.value = d.phone;
       }
 
       // Restore location radio
@@ -1783,6 +1937,8 @@ document.addEventListener('DOMContentLoaded', () => {
 🎯 *Main Goal:* ${data.goal}
 💰 *Estimated Budget:* ${data.budget}
 ⏱ *Timeline:* ${data.timeline}
+✉️ *Email:* ${data.email}
+📞 *Phone:* ${data.phone}
 📝 *Project Brief:*
 ${data.notes}
 ━━━━━━━━━━━━━━━━━━━━━
@@ -1814,6 +1970,8 @@ Here are my project details:
 • Main Goal: ${data.goal}
 • Estimated Budget: ${data.budget}
 • Timeline: ${data.timeline}
+• Email Address: ${data.email}
+• WhatsApp / Phone: ${data.phone}
 
 Project Brief:
 ${data.notes}
@@ -1838,6 +1996,15 @@ ${data.name}`
     document.querySelectorAll('.client-name-slot').forEach(slot => {
       slot.textContent = firstName;
     });
+
+    // Prefill phone and email from Step 9 if already provided
+    const data = getProjectBriefData();
+    if (clientPhoneInput && data.phone && data.phone !== 'Not provided') {
+      clientPhoneInput.value = data.phone;
+    }
+    if (clientEmailInput && data.email && data.email !== 'Not provided') {
+      clientEmailInput.value = data.email;
+    }
 
     callbackModal.style.display = 'flex';
     requestAnimationFrame(() => {
