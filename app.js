@@ -1424,13 +1424,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const draft = getSavedDraft();
     if (!draft) return;
 
-    // Display immediately upon page reload (500ms for smooth initial paint & chime)
+    // Display after some seconds upon page reload (4500ms for natural reading delay & chime)
     resumeRevisitTimer = setTimeout(() => {
       const activeDraft = getSavedDraft();
       if (activeDraft && (!modal || !modal.classList.contains('open'))) {
         showMacResumeNotification(activeDraft, true);
       }
-    }, 500);
+    }, 4500);
   }
 
   initPageRevisitResumeReminder();
