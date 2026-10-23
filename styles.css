@@ -4314,18 +4314,19 @@ body.dark-theme .fs-btn-submit:hover {
   }
 
   .fs-close-btn {
-    padding: 0;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
+    padding: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
   }
 
   .fs-close-btn .close-icon {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1;
   }
 
@@ -4333,14 +4334,19 @@ body.dark-theme .fs-btn-submit:hover {
     display: none !important;
   }
 
+  /* Push form questions to the top half of the screen on mobile so keypad sits nicely underneath */
   .fs-modal-dialog {
-    padding: 12px 16px 85px;
-    margin: auto 0;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 24px 18px 90px !important;
+    margin: 0 auto !important;
   }
 
   .fs-question-card {
     max-width: 100%;
     margin: 0 auto;
+    padding-top: 6px;
   }
 
   .fs-question-title {
@@ -4393,6 +4399,33 @@ body.dark-theme .fs-btn-submit:hover {
   .fs-btn-back {
     min-height: 44px;
     padding: 10px 16px !important;
+  }
+
+  /* --- Reduce excessive gap between mobile sticky header and hero headline --- */
+  .colorinvoice-main-layout {
+    padding-top: 86px !important; /* Reduced from 220px! */
+  }
+
+  .colorinvoice-article-wrapper {
+    padding-top: 6px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .hero-subheadline-eyebrow {
+    margin: 12px auto 14px auto !important;
+    font-size: 0.86rem !important;
+    padding: 0 12px !important;
+  }
+
+  .colorinvoice-article-title {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+    margin: 0 auto 18px auto !important;
+    padding: 0 12px !important;
+  }
+
+  .hero-clean-image-wrap {
+    margin: 16px auto 26px auto !important;
   }
 }
 
@@ -6127,7 +6160,7 @@ body.dark-theme .mac-notif-btn-secondary:hover {
 
 @media (max-width: 640px) {
   .mac-notification-banner {
-    top: 14px !important;
+    top: 76px !important;
     bottom: auto !important;
     right: 12px !important;
     left: 12px !important;
@@ -6135,13 +6168,15 @@ body.dark-theme .mac-notif-btn-secondary:hover {
     max-width: none !important;
     padding: 13px 15px !important;
     border-radius: 18px !important;
-    transform: translateY(-150%) scale(0.95);
-    z-index: 1000000 !important;
+    transform: translateY(-24px) scale(0.96);
+    opacity: 0;
+    z-index: 99999 !important;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22) !important;
   }
   
   .mac-notification-banner.active {
     transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
   }
 
   .mac-notif-header {
