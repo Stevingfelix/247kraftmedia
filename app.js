@@ -856,6 +856,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Auto-scroll modal container and dialog to top on every step switch
+    if (modal) {
+      modal.scrollTop = 0;
+      if (typeof modal.scrollTo === 'function') {
+        modal.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+    const fsDialog = document.querySelector('.fs-modal-dialog');
+    if (fsDialog) {
+      fsDialog.scrollTop = 0;
+      if (typeof fsDialog.scrollTo === 'function') {
+        fsDialog.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+
     // Auto-focus current step input
     setTimeout(focusCurrentStepInput, 100);
 
@@ -872,6 +887,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const requiredFields = activePane.querySelectorAll('input[required], textarea[required]');
     for (const field of requiredFields) {
       if (!field.value || !field.value.trim()) {
+        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
         field.focus();
         if (typeof field.reportValidity === 'function') {
           field.reportValidity();
@@ -1578,6 +1594,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Step 9 interactive cue: smoothly scrolls down to contact fields
+  const step9Cue = document.getElementById('fs-step9-cue');
+  if (step9Cue) {
+    step9Cue.addEventListener('click', (e) => {
+      e.preventDefault();
+      const emailField = document.getElementById('step9_client_email');
+      if (emailField) {
+        emailField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => emailField.focus(), 250);
+      }
+    });
+  }
+
   /* ==========================================================================
      SLEEK HORIZONTAL CHIP SELECTOR & CAROUSEL ENGINE
      ========================================================================== */
@@ -1947,6 +1976,11 @@ _Sent via 247Kraft Client Portal_`;
       const encodedMsg = encodeURIComponent(waMessage);
       const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+      // Auto-close project brief form on both mobile and desktop
+      setTimeout(() => {
+        closeBriefModal();
+      }, 450);
     });
   }
 
@@ -1983,6 +2017,11 @@ ${data.name}`
       );
       const mailtoUrl = `mailto:${STUDIO_EMAIL}?subject=${subject}&body=${body}`;
       window.location.href = mailtoUrl;
+
+      // Auto-close project brief form on both mobile and desktop
+      setTimeout(() => {
+        closeBriefModal();
+      }, 450);
     });
   }
 
@@ -2353,10 +2392,13 @@ ${data.name}`
   }
   updateSoundUI();
 
-  // 1. Single click on speaker icon: toggle Mute / Unmute instantly
+  // 1. Single click on speaker icon: toggle Mute / Unmute + toggle slider expansion
   if (soundBtn) {
     soundBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      if (soundCapsule) {
+        soundCapsule.classList.toggle('is-expanded');
+      }
       if (isSoundEnabled) {
         // Mute
         isSoundEnabled = false;
@@ -2420,7 +2462,25 @@ ${data.name}`
     });
   }
 
-  // 3. Immediately collapse capsule and blur active slider the instant cursor leaves
+  // 3. Auto-collapse sound capsule when user scrolls or moves touch
+  function collapseSoundCapsule() {
+    if (soundCapsule) {
+      soundCapsule.classList.remove('is-expanded');
+      soundCapsule.classList.add('force-collapsed');
+      setTimeout(() => {
+        if (soundCapsule) soundCapsule.classList.remove('force-collapsed');
+      }, 350);
+    }
+    if (soundVolumeSlider) soundVolumeSlider.blur();
+    if (soundBtn) soundBtn.blur();
+    if (document.activeElement && (document.activeElement === soundBtn || document.activeElement === soundVolumeSlider)) {
+      document.activeElement.blur();
+    }
+  }
+
+  window.addEventListener('scroll', collapseSoundCapsule, { passive: true });
+  window.addEventListener('touchmove', collapseSoundCapsule, { passive: true });
+
   const soundCapsuleWrapper = document.getElementById('sound-capsule-wrapper');
   if (soundCapsuleWrapper) {
     soundCapsuleWrapper.addEventListener('mouseleave', () => {

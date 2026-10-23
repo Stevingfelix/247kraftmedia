@@ -4365,20 +4365,67 @@ body.dark-theme .fs-btn-submit:hover {
     padding: 8px 0 !important;
   }
 
-  .fs-chip {
-    padding: 9px 14px;
-    font-size: 0.85rem;
+  .fs-chip-grid {
+    gap: 8px !important;
+    padding: 8px 6px 16px 6px !important;
   }
 
+  .fs-chip {
+    padding: 8px 14px !important;
+    font-size: 0.82rem !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Step 9 mobile compaction so contact fields remain accessible */
+  .fs-pane[data-step="9"] .fs-question-title {
+    font-size: 1.38rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .fs-pane[data-step="9"] .fs-helper-text {
+    font-size: 0.84rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .fs-pane[data-step="9"] .fs-textarea-wrap {
+    margin-top: 6px !important;
+  }
+
+  .fs-pane[data-step="9"] .fs-textarea-box {
+    min-height: 68px !important;
+    height: 68px !important;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .fs-contact-destination-wrap {
+    margin-top: 14px !important;
+    padding: 14px !important;
+  }
+
+  .fs-contact-subheading {
+    font-size: 1.05rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .fs-contact-fields-grid {
+    gap: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Seamless transparent modal footer on mobile (no white block overlay) */
   .fs-modal-footer {
     padding: 12px 16px env(safe-area-inset-bottom, 16px) !important;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
   }
 
   body.dark-theme .fs-modal-footer {
-    background: rgba(10, 15, 29, 0.92);
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .fs-footer-inner {
@@ -4401,9 +4448,9 @@ body.dark-theme .fs-btn-submit:hover {
     padding: 10px 16px !important;
   }
 
-  /* --- Reduce excessive gap between mobile sticky header and hero headline --- */
+  /* --- Balanced gap between mobile sticky header and hero headline --- */
   .colorinvoice-main-layout {
-    padding-top: 86px !important; /* Reduced from 220px! */
+    padding-top: 106px !important; /* Ideal 32px breathing space below floating navbar pill */
   }
 
   .colorinvoice-article-wrapper {
@@ -4521,22 +4568,67 @@ body.dark-theme .sound-capsule {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
-/* Hover or Active Expansion */
-.sound-capsule-wrapper:hover .sound-capsule,
-.sound-capsule.is-expanded {
+/* Hover or Active Expansion: Desktop Mouse vs Mobile Touch */
+@media (hover: hover) and (pointer: fine) {
+  .sound-capsule-wrapper:hover .sound-capsule:not(.force-collapsed) {
+    width: 195px;
+    box-shadow: 0 12px 32px rgba(2, 132, 199, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 1);
+    border-color: rgba(2, 132, 199, 0.35);
+  }
+
+  body.dark-theme .sound-capsule-wrapper:hover .sound-capsule:not(.force-collapsed) {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.75), 0 0 20px rgba(56, 189, 248, 0.18);
+  }
+
+  .sound-capsule-wrapper:hover .dock-tooltip {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .sound-capsule-wrapper:hover .sound-capsule:not(.force-collapsed) .sound-slider-tray {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+}
+
+.sound-capsule.is-expanded:not(.force-collapsed) {
   width: 195px;
   box-shadow: 0 12px 32px rgba(2, 132, 199, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 1);
   border-color: rgba(2, 132, 199, 0.35);
 }
 
-body.dark-theme .sound-capsule-wrapper:hover .sound-capsule,
-body.dark-theme .sound-capsule.is-expanded {
+body.dark-theme .sound-capsule.is-expanded:not(.force-collapsed) {
   border-color: rgba(56, 189, 248, 0.4);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.75), 0 0 20px rgba(56, 189, 248, 0.18);
 }
 
+.sound-capsule.is-expanded:not(.force-collapsed) ~ .dock-tooltip {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.sound-capsule.is-expanded:not(.force-collapsed) .sound-slider-tray {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* Force-collapsed state triggered when user scrolls the page */
+.sound-capsule.force-collapsed {
+  width: 44px !important;
+  box-shadow: none !important;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.sound-capsule.force-collapsed .sound-slider-tray {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(10px) !important;
+}
+
 /* Hide tooltip when expanded so it doesn't overlap the slider */
-.sound-capsule-wrapper:hover .dock-tooltip,
 .sound-capsule.is-expanded ~ .dock-tooltip {
   opacity: 0 !important;
   pointer-events: none !important;
@@ -4574,11 +4666,59 @@ body.dark-theme .sound-capsule.is-expanded {
   white-space: nowrap;
 }
 
-.sound-capsule-wrapper:hover .sound-slider-tray,
-.sound-capsule.is-expanded .sound-slider-tray {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
+/* Interactive Scroll-to-Contact Cue on Step 9 */
+.fs-scroll-cue-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0284c7;
+  padding: 6px 14px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  border-radius: 9999px;
+  margin-top: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fs-scroll-cue-wrap:hover {
+  background: rgba(2, 132, 199, 0.14);
+  transform: translateY(1px);
+}
+
+.fs-scroll-cue-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0284c7;
+  box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
+  animation: cuePulse 1.8s infinite;
+}
+
+@keyframes cuePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(2, 132, 199, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+  }
+}
+
+body.dark-theme .fs-scroll-cue-wrap {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+body.dark-theme .fs-scroll-cue-pulse {
+  background: #38bdf8;
 }
 
 /* Track Wrapper */
