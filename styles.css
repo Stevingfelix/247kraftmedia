@@ -6279,6 +6279,8 @@ body.dark-theme .mac-notif-btn-secondary:hover {
   .mac-notification-banner.active {
     transform: translateY(0) scale(1) !important;
     opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 
   .mac-notif-header {

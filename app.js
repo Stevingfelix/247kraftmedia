@@ -1216,14 +1216,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   }
 
-  function showMacResumeNotification(draft) {
+  function showMacResumeNotification(draft, force = false) {
     if (!macResumeNotif) return;
     if (modal && modal.classList.contains('open')) return;
     if (localStorage.getItem('247kraft_brief_completed') === 'true') return;
 
-    // Check if dismissed recently (snoozes for 3 minutes)
-    const snoozedUntil = parseInt(sessionStorage.getItem('247kraft_resume_snoozed_until') || '0', 10);
-    if (Date.now() < snoozedUntil) return;
+    // Check if dismissed recently (snoozes for 3 minutes, unless force=true like on page reload)
+    if (!force) {
+      const snoozedUntil = parseInt(sessionStorage.getItem('247kraft_resume_snoozed_until') || '0', 10);
+      if (Date.now() < snoozedUntil) return;
+    }
 
     const activeDraft = draft || getSavedDraft() || { step: currentActiveStep || 1, data: getProjectBriefData() };
     const stepNum = (activeDraft && activeDraft.step) ? activeDraft.step : (currentActiveStep || 1);
@@ -1389,13 +1391,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // In-session Inactivity Timer: 2 minutes (120,000ms) after closing modal
+  // In-session Inactivity Timer: 3 minutes (180,000ms) after abandoning/closing modal
   function scheduleInactivityResumeReminder() {
     cancelInactivityResumeReminder();
     if (localStorage.getItem('247kraft_brief_completed') === 'true') return;
-
-    const snoozedUntil = parseInt(sessionStorage.getItem('247kraft_resume_snoozed_until') || '0', 10);
-    if (Date.now() < snoozedUntil) return;
 
     const draft = getSavedDraft();
     if (!draft) return;
@@ -1405,7 +1404,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (activeDraft && (!modal || !modal.classList.contains('open'))) {
         showMacResumeNotification(activeDraft);
       }
-    }, 120000);
+    }, 180000); // 3 minutes exactly per user requirement
   }
 
   function cancelInactivityResumeReminder() {
@@ -1415,22 +1414,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Page Revisit Reminder: 4 seconds after page load if unfinished draft exists
+  // Page Revisit Reminder: IMMEDIATELY after reloading a page if unfinished draft exists
   function initPageRevisitResumeReminder() {
     if (localStorage.getItem('247kraft_brief_completed') === 'true') return;
 
-    const snoozedUntil = parseInt(sessionStorage.getItem('247kraft_resume_snoozed_until') || '0', 10);
-    if (Date.now() < snoozedUntil) return;
+    // Reset snooze on fresh page load so reload triggers immediately
+    sessionStorage.removeItem('247kraft_resume_snoozed_until');
 
     const draft = getSavedDraft();
     if (!draft) return;
 
+    // Display immediately upon page reload (500ms for smooth initial paint & chime)
     resumeRevisitTimer = setTimeout(() => {
       const activeDraft = getSavedDraft();
       if (activeDraft && (!modal || !modal.classList.contains('open'))) {
-        showMacResumeNotification(activeDraft);
+        showMacResumeNotification(activeDraft, true);
       }
-    }, 4000);
+    }, 500);
   }
 
   initPageRevisitResumeReminder();
