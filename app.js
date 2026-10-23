@@ -1041,7 +1041,7 @@ document.addEventListener('DOMContentLoaded', () => {
      - Continues blinking until user resumes, opens the brief, or dismisses
      ========================================================================== */
   let tabBlinkInterval = null;
-  let originalDocumentTitle = document.title || '247Kraft | Modern Web Engineering & Conversion-Driven Sites';
+  let originalDocumentTitle = document.title || '247Kraft — Thinking Of Getting A Website For Your Business? Read This Before You Kiss Your Money Goodbye';
 
   function startTabAlertBlinking() {
     if (tabBlinkInterval) return;
